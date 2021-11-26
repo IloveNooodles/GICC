@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/navbar";
 import GICC from "./components/gicc";
+import AboutUs from "./components/aboutUs";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
         <GICC />
       </div>
 
-      <div className="about-us"></div>
+      <div className="about-us">
+        <AboutUs />
+      </div>
     </div>
   );
 }
