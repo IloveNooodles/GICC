@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+.upperFooter1 {
+  background-color: #143061;
+  height: 300px;
+}
+
+.upperFooter2 {
+  background-color: #102853;
+  height: 400px;
+  display: flex;
+}
+
+.upperFooter2-GICC {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.upperFooter2-GICC img {
+  width: 286px;
+  height: 146px;
+}
+
+.upperFooter2-Contact{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-component {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.contact-component p{
+  height: auto;
+  width: auto;
+  color: #F2F2F3;
+  padding-left: 7px;
+}
+
+.contact-component img {
+  width: 33px;
+  height: 33px;
+  padding: 10px;
+}
+
+.sponsor {
+  display: grid;
+  place-content: center;
+  color: #ffc727;
+  height: 300px;
+}
+
+.footer {
+  height: 100px;
+  background-color: #143061;
+  font: poppins;
+}
+
+.footer-backBtn {
+  display: grid;
+  place-content: center;
+}
+
+.backBtn {
+  width: 200px;
+  height: 60px;
+  border-radius: 40px;
+  padding: 0;
+  background-color: #26a198;
+  outline: 0;
+  border: 0;
+  transition: ease 0.5s;
+}
+
+.backBtn a {
+  text-decoration: none;
+  color: #143061;
+  font-size: 16px;
+  font-weight: 600px;
+  font-weight: bold;
+}
+
+.backBtn:hover {
+  cursor: pointer;
+  background-color: #22c7bc;
+}
+
+.footer-copyright {
+  background-color: #102853;
+  display: grid;
+  place-content: center;
+  color: #ffda80;
+}

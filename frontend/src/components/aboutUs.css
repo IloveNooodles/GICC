@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
-
 .container-aboutus {
   display: flex;
   background-color: #213665;
@@ -27,6 +26,12 @@
 .container-text a {
   margin: 0;
   color: #ffc727;
+  text-decoration: none;
+}
+
+.container-text a:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .container-title-aboutus {

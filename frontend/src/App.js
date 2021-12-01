@@ -2,6 +2,7 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import GICC from "./components/gicc";
 import AboutUs from "./components/aboutUs";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
 
       <div className="about-us">
         <AboutUs />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
