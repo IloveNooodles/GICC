@@ -2,7 +2,7 @@ import "./aboutUs.css";
 import Circle from "./assets/Rectangle2.svg";
 import Circle2 from "./assets/Rectangle.svg";
 
-const AboutUs = () => {
+const AboutUs = () => { 
   return (
     <div className="container-about">
       <div className="svg-container">

@@ -1,0 +1,104 @@
+.container-competition {
+    background-color: #26A198;
+    padding: 2vw 0;
+    height: 100%;
+    justify-content: center;
+    font-family: poppins;
+}
+
+.container-base {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-title-competition {
+    width: fit-content;
+    padding: 0 auto;
+    text-align: center;
+    font-size: 2.5vw;
+    font-weight: bold;
+    background: linear-gradient(264.98deg, #FFDA80 27.23%, #88ECD2 60.99%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container-desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vw;
+}
+
+.container-title-desc {
+    width: 1196px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.8vw;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.container-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vw;
+}
+
+.card {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    width: 16vw;
+    height: 25vw;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.card-image {
+    width:6vw;
+    height: 6vw;
+    padding: 0;
+    margin-top: 2.5vw;
+}
+
+.card-title {
+    color: #20245C;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1vw;
+    margin-top: 0.5vw;
+    height:fit-content;
+}
+
+.card-content {
+    width: fit-content;
+    padding: 0 auto;
+    text-align: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.8vw;
+    color: #FFFFFF;
+    margin-top: 0.5vw;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.bottom-link {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.8vw;
+    text-decoration-line: underline;
+    text-align: center;
+    color: #FFC727;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
