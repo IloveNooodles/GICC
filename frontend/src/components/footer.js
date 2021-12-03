@@ -3,6 +3,19 @@ import GiccImage from "./assets/gicc.png";
 import Line from "./assets/line.png";
 import Linkedin from "./assets/linkedin.png";
 import Instagram from "./assets/instagram.png";
+import Placeholder from "./assets/placeholder.png";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+var settings = {
+  dots: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  useCss: true,
+};
 
 const Footer = () => {
   return (
@@ -28,7 +41,14 @@ const Footer = () => {
         </div>
       </div>
       <div className="sponsor">
-        <p>ini sponsor</p>
+        <Slider {...settings}>
+          <img src={Placeholder} alt="GICC Image1" />
+          <img src={Placeholder} alt="GICC Image2" />
+          <img src={Placeholder} alt="GICC Image6" />
+          <img src={Placeholder} alt="GICC Image3" />
+          <img src={Placeholder} alt="GICC Image4" />
+          <img src={Placeholder} alt="GICC Image5" />
+        </Slider>
       </div>
       <div className="footer">
         <div className="footer-backBtn">

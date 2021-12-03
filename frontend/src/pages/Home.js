@@ -1,10 +1,13 @@
-import Navbar from "./components/navbar";
-import GICC from "./components/gicc";
-import AboutUs from "./components/aboutUs";
-import Footer from "./components/footer";
-import Competition from "./components/competition";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import GICC from "../components/Home/gicc";
+import AboutUs from "../components/Home/aboutUs";
+import Competition from "../components/Home/competition";
+import AOS from "aos";
 
-const Home = () => { 
+AOS.init();
+
+const Home = () => {
   return (
     <div className="App" overflowX="hidden">
       <div className="first-section-container">

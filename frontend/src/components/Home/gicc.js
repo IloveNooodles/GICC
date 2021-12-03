@@ -1,5 +1,5 @@
 import React from "react";
-import "./gicc.css"
+import "./gicc.css";
 
 function gicc() {
   return (

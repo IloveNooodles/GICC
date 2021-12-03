@@ -1,0 +1,32 @@
+.container-body {
+  display: flex;
+  padding: 100px 0;
+  height: fit-content;
+  justify-content: center;
+  font-family: poppins;
+}
+
+.container-text-competition {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  padding-left: 5rem;
+  color: white;
+  font-weight: 300;
+}
+
+.container-text-competition p {
+  text-align: left;
+  padding-bottom: 2rem;
+}
+
+.container-text-competition a {
+  margin: 0;
+  color: #ffc727;
+  text-decoration: none;
+}
+
+.container-text-competition a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
