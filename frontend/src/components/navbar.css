@@ -1,38 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
 .navbar {
-    height: 20%;
-    display: flex;
-    flex-direction: row-reverse;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2vw;
-    font-weight: 500;
+  height: 20%;
+  display: flex;
+  flex-direction: row-reverse;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2vw;
+  font-weight: 500;
 }
 
 .left-section {
-    float: left;
-    column-gap: 3vw;
-    padding: 1vw;
+  float: left;
+  column-gap: 3vw;
+  padding: 1vw;
 }
 
 img {
-    padding: 2vw;
+  padding: 2vw;
 }
 
 .right-section {
-    width: 20%;
-    float: right;
-    column-gap: 3vw; 
-    padding: 3.3vw;
-    color: white;
+  width: 20%;
+  float: right;
+  column-gap: 3vw;
+  padding: 3.3vw;
+  color: white;
 }
 
-a {
-    margin: 2vw;
+.link-style {
+  margin: 2vw;
+  text-decoration: none;
+  color: #f2f2f2;
 }
 
-a:hover {
-    cursor: pointer;
-    text-decoration: underline;
+.link-style:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
-

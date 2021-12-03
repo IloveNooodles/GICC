@@ -1,29 +1,21 @@
 import "./App.css";
-import Navbar from "./components/navbar";
-import GICC from "./components/gicc";
-import AboutUs from "./components/aboutUs";
-import Footer from "./components/footer";
-import Competition from "./components/competition";
+import "aos/dist/aos.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
+import Home from "./pages/Home";
+import CompetitionPage from "./pages/CompetitionPage";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App" overflowX="hidden">
-      <div className="first-section-container">
-        <Navbar />
-        <GICC />
-      </div>
-
-      <div className="about-us">
-        <AboutUs />
-      </div>
-      <div className="competition">
-        <Competition />
-      </div>
-      <div className="footer">
-        <Footer />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/competition" element={<CompetitionPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
