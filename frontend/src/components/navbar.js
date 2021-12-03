@@ -3,13 +3,14 @@ import logoGicc from "./assets/gicc.png";
 import logoKM from "./assets/km.png";
 import logoKabinet from "./assets/kabinet.png";
 import "./navbar.css";
+import { Link } from "react-router-dom"
 
 function navbar() {
   return (
     <div className="navbar">
       <div className="right-section">
-            <a>Home</a>
-            <a>Competition</a>
+            <Link to="/"> Home </Link>
+            <Link to="/competition">Competition</Link>
             <div class="underbar"></div>
       </div>
 
