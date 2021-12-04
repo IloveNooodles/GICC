@@ -1,0 +1,44 @@
+.description {
+    margin: 0;
+    width: 100vw;
+
+}
+
+.descriptionBase {
+    padding-top: 10vw;
+    padding-bottom: 0vw;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+.descriptionTitle {
+    height: fit-content;
+    width: fit-content;
+    padding: 0 auto;
+    text-align: center;
+    font-size: 5vw;
+    font-weight: bold;
+    background: linear-gradient(267.68deg, #FFDC80 24.87%, #97FCFA 58.28%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.descriptionReal {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    color: #F2F2F2;
+    justify-content: center;
+    width:100vw;
+    margin-top: 4vw;
+    display:flex;
+    height: fit-content;
+}
+
+.descdesc {
+    width: 30vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
