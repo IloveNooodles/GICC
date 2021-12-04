@@ -1,11 +1,11 @@
 .description {
     margin: 0;
     width: 100vw;
-
+    background-color:#208685;
 }
 
 .descriptionBase {
-    padding-top: 10vw;
+    padding-top: 15vh;
     padding-bottom: 0vw;
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@
     width: fit-content;
     padding: 0 auto;
     text-align: center;
-    font-size: 5vw;
+    font-size: 10vh;
     font-weight: bold;
     background: linear-gradient(267.68deg, #FFDC80 24.87%, #97FCFA 58.28%);
     background-clip: text;
@@ -28,7 +28,7 @@
     font-family: Poppins;
     font-style: normal;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 2vh;
     color: #F2F2F2;
     justify-content: center;
     width:100vw;
