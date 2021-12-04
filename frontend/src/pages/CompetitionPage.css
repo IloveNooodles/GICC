@@ -4,7 +4,8 @@
 }
 
 .contentAU {
-  height: fit-content;
+  height: 100vh;
+  background-color: #143061;
 }
 
 .description {
