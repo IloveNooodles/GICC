@@ -16,6 +16,15 @@ function navbar() {
           <Link to="/competition" className="link-style">
             Competition
           </Link>
+          <Link to="/preevent" className="link-style">
+            Pre-Event
+          </Link>
+          <Link to="/profile" className="link-style">
+            Profile
+          </Link>
+          <Link to="/register" className="link-style active-nav">
+            Register/Signin
+          </Link>
         </div>
         <div class="underbar"></div>
       </div>

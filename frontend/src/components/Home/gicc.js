@@ -1,6 +1,8 @@
 import React from "react";
 import "./gicc.css";
 
+import registerBoard from "../assets/register-board.png";
+
 function gicc() {
   return (
     <div className="container">
@@ -17,6 +19,24 @@ function gicc() {
         <br></br> solving industrial problems
       </p>
       <div className="bottom-border"></div>
+      <div className="containerCard">
+        <div className="card">
+          <img
+            src={registerBoard}
+            alt="register-board"
+            className="image-register-board"
+          />
+          <p className="whiteText">Register Competition</p>
+        </div>
+        <div className="card">
+          <img
+            src={registerBoard}
+            alt="register-board"
+            className="image-register-board"
+          />
+          <p className="whiteText">Register Pre-Event</p>
+        </div>
+      </div>
     </div>
   );
 }
