@@ -3,9 +3,10 @@ import logoGicc from "./assets/gicc.png";
 import logoKM from "./assets/km.png";
 import logoKabinet from "./assets/kabinet.png";
 import "./navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-function navbar() {
+function Navbar() {
+  const { pathname } = useLocation();
   return (
     <div className="navbar">
       <div className="right-section">
@@ -22,7 +23,14 @@ function navbar() {
           <Link to="/profile" className="link-style">
             Profile
           </Link>
-          <Link to="/register" className="link-style active-nav">
+          <Link
+            to="/register"
+            className={`link-style ${
+              pathname === "/competition"
+                ? "active-nav-competition"
+                : "active-nav"
+            }`}
+          >
             Register/Signin
           </Link>
         </div>
@@ -50,4 +58,4 @@ function navbar() {
   );
 }
 
-export default navbar;
+export default Navbar;

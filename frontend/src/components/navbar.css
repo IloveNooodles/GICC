@@ -51,3 +51,12 @@ img {
   padding: 12px;
   color: #9ed1b3;
 }
+
+.active-nav-competition {
+  background-color: #208685;
+  border-radius: 40px;
+  width: fit-content;
+  height: fit-content;
+  padding: 12px;
+  color: #9ed1b3;
+}
