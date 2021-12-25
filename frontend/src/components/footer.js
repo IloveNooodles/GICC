@@ -47,16 +47,6 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="sponsor">
-        <Slider {...settings}>
-          <img src={Placeholder} alt="GICC Image1" />
-          <img src={Placeholder} alt="GICC Image2" />
-          <img src={Placeholder} alt="GICC Image6" />
-          <img src={Placeholder} alt="GICC Image3" />
-          <img src={Placeholder} alt="GICC Image4" />
-          <img src={Placeholder} alt="GICC Image5" />
-        </Slider>
-      </div>
       <div className="footer">
         <div className="footer-backBtn">
           <button className="backBtn">

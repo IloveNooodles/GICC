@@ -25,6 +25,7 @@
 }
 
 .upperFooter2-Contact {
+  text-decoration: none;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -33,7 +34,6 @@
 
 .upperFooter2-Contact a {
   height: auto;
-  text-decoration: none;
 }
 
 .contact-component {
@@ -56,21 +56,9 @@
 }
 
 .footer {
-  height: 100px;
+  height: 150px;
   background-color: #143061;
   font: poppins;
-}
-
-.sponsor {
-  height: 600px;
-  background-color: #ffda80;
-}
-
-.sponsor img {
-  margin: 0 auto;
-  padding: 0;
-  height: 400px;
-  width: 10px;
 }
 
 ul.slick-dots {
@@ -87,6 +75,7 @@ ul.slick-dots {
 }
 
 .footer-backBtn {
+  height: 200px;
   display: grid;
   place-content: center;
 }
@@ -116,6 +105,7 @@ ul.slick-dots {
 }
 
 .footer-copyright {
+  height: 100px;
   background-color: #102853;
   display: grid;
   place-content: center;

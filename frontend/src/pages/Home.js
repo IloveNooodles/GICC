@@ -1,9 +1,10 @@
-import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import GICC from "../components/Home/gicc";
 import AboutUs from "../components/Home/aboutUs";
 import Competition from "../components/Home/competition";
+import Sponsor from "../components/Home/sponsor"
 import AOS from "aos";
+import "./Home.css"
 
 AOS.init();
 
@@ -19,6 +20,9 @@ const Home = () => {
       <div className="competition">
         <Competition />
       </div>
+      {/* <div className="sponsor">
+        <Sponsor /> 
+      </div> */}
       <div className="footer">
         <Footer />
       </div>
