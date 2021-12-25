@@ -1,9 +1,12 @@
 .login-container {
-  height: 100%;
   display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
 }
 
 .left-login {
+  height: 100%;
+  padding: 80px;
   background: url("./assets//login-decoration.png") fixed no-repeat;
 }
 
@@ -15,9 +18,30 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+.left-login button {
+  margin-left: 180px;
+  height: auto;
+  width: 250px;
+  border-radius: 50px;
+  padding: 10px;
+  font-size: 16px;
+  color: #26a198;
+  background-color: #143061;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.left-login button:hover {
+  transition: all ease 0.4s;
+  background-color: white;
+  border: 1px solid #143061;
+  color: #143061; 
+}
+
 .login-title {
   font-weight: 700;
-  font-size: 80px;
+  font-size: 70px;
   background: linear-gradient(267.2deg, #ffdc80 41.24%, #26a198 89.6%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -25,6 +49,10 @@
   width: fit-content;
   margin-left: 32px;
   padding-left: 32px;
+}
+
+.login-text-content {
+  height: 200px;
 }
 
 .login-text-content p {
@@ -43,8 +71,9 @@
 }
 
 .right-login {
-  padding-left: 100px;
-  padding-top: 100px;
+  height: 100%;
+  padding-left: 20px;
+  padding-top: 200px;
   margin-left: 100px;
 }
 
@@ -53,6 +82,7 @@
 }
 
 .right-login h1 {
+  padding-left: 25%;
   height: auto;
   padding-bottom: 80px;
   color: #143061;
@@ -100,11 +130,21 @@
   cursor: pointer;
 }
 
-.login-button {
-  padding-top: 20px;
+.right-login button:hover {
+  transition: all ease 0.4s;
+  background-color: white;
+  border: 1px solid #143061;
+  color: #143061; 
 }
 
+.login-button {
+  padding-top: 20px;
+  padding-left: 17%;
+}
+
+
 .login-connectwith {
+  margin-left: 18%;
   height: auto;
   padding-bottom: 10px;
 }

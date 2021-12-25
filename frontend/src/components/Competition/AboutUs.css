@@ -6,6 +6,21 @@
   font-family: poppins;
 }
 
+.left-rectangle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: -2%;
+}
+
+.right-rectangle {
+  position: absolute;
+  right: 0;
+  padding: 0;
+  width: 290px;
+  height: 330px;
+}
+
 .container-text-competition {
   display: flex;
   flex-direction: column;

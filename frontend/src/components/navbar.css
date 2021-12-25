@@ -1,22 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
 .navbar {
-  height: 20%;
+  height: 150px;
   display: flex;
   flex-direction: row-reverse;
   font-family: "Poppins", sans-serif;
-  font-size: 1.2vw;
+  font-size: 20px;
   font-weight: 500;
 }
 
 .left-section {
-  float: left;
-  column-gap: 3vw;
-  padding: 1vw;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.right-section {
+  float: right;
+  margin: auto;
 }
 
 img {
-  padding: 2vw;
+  padding: 30px;
 }
 
 .link-style {
@@ -32,6 +39,7 @@ img {
 }
 
 .links-container {
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;

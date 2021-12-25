@@ -8,10 +8,8 @@
   font-family: "Poppins", sans-serif;
 }
 
-.App {
-  background-image: url("./components/assets/background.png");
-  background-size: 100% 100%;
-  background-color: #213665;
+.first-section-container {
+  height: fit-content;
 }
 
 .about-us {

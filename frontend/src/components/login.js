@@ -2,6 +2,7 @@ import "./login.css";
 import GiccImage from "./assets/Logo GICC 2022 (On Dark) 2.png";
 import Linkedin from "./assets/jam_linkedin-circle.png";
 import Facebook from "./assets/jam_facebook-circle.png";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const hasLogin = false;
@@ -17,10 +18,13 @@ const Login = () => {
             We empowering youth through professional cooperation exerience in
             solving industrial problems
           </p>
+          <Link to="/">
+            <button>Go To Homepage</button>
+          </Link>
         </div>
       </div>
       <div className="right-login">
-        <h1>Sign Up</h1>
+        <h1>Log In</h1>
         <div className="login-form-container">
           <form>
             <div className="login-form-content">
@@ -42,11 +46,14 @@ const Login = () => {
           <img src={Facebook} alt="Logo Facebook" />
           <img src={Facebook} alt="Logo Facebook" />
         </div>
-        <p>
-          Already have an account? <span>Log in</span>
+        <p style={{ marginLeft: "17%" }}>
+          Don't have an account?
+          <Link to="/register">
+            <span>Sign Up</span>
+          </Link>
         </p>
         <div className="login-button">
-          <button>Create Account</button>
+          <button>Log In</button>
         </div>
       </div>
     </div>

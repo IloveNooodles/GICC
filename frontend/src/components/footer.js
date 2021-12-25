@@ -20,7 +20,7 @@ var settings = {
 const Footer = () => {
   return (
     <div>
-      <div className="upperFooter1"></div>
+      {/* <div className="upperFooter1"></div> */}
       <div className="upperFooter2">
         <div className="upperFooter2-GICC">
           <img src={GiccImage} alt="Gambar GICC" />
@@ -30,14 +30,21 @@ const Footer = () => {
             <img src={Line} alt="Line" />
             <p>@672xydvh</p>
           </div>
-          <div className="contact-component">
-            <img src={Linkedin} alt="Linkedin" />
-            <p>Ganesha Integration Case Competition (GICC)</p>
-          </div>
-          <div className="contact-component">
-            <img src={Instagram} alt="instagram" />
-            <p>@ganesha.icc</p>
-          </div>
+          <a href="https://www.linkedin.com/company/ganesha-icc/">
+            <div className="contact-component">
+              <img src={Linkedin} alt="Linkedin" />
+              <p>Ganesha Integration Case Competition (GICC)</p>
+            </div>
+          </a>
+          <a
+            style={{ height: "auto" }}
+            href="https://www.instagram.com/ganesha.icc/"
+          >
+            <div className="contact-component">
+              <img src={Instagram} alt="instagram" />
+              <p>@ganesha.icc</p>
+            </div>
+          </a>
         </div>
       </div>
       <div className="sponsor">

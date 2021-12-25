@@ -1,41 +1,38 @@
 import React from "react";
 import "./gicc.css";
-
 import registerBoard from "../assets/register-board.png";
+import Navbar from "../navbar";
+import { Link } from "react-router-dom";
 
 function gicc() {
   return (
     <div className="container">
-      <div className="top-border"></div>
+      <Navbar />
+      {/* <div className="GICC-big">GICC</div> */}
       <div className="GICC">
-        Ganesha <br></br>
-        <div className="left-circle"></div>
-        Integration<br></br>
-        <div className="right-circle"></div>
-        Case Competition <br></br>
+        Ganesha <br></br>Integration <br></br> Case Competition
       </div>
-      <p className="description-GICC">
-        We empower youth through professional cooperation experience in
-        <br></br> solving industrial problems
-      </p>
-      <div className="bottom-border"></div>
-      <div className="containerCard">
-        <div className="card">
+      <div style={{ color: "white" }} className="description-GICC">
+        Empowering youth through professional cooperation experience in solving
+        industrial problems
+      </div>
+      <div className="GICC-card-container">
+        <Link to="/register" className="GICC-card">
           <img
             src={registerBoard}
             alt="register-board"
             className="image-register-board"
           />
-          <p className="whiteText">Register Competition</p>
-        </div>
-        <div className="card">
+          <p style={{ color: "white" }}>Register Competition</p>
+        </Link>
+        <a className="GICC-card">
           <img
             src={registerBoard}
             alt="register-board"
             className="image-register-board"
           />
-          <p className="whiteText">Register Pre-Event</p>
-        </div>
+          <p style={{ color: "white" }}>Register Pre-Event</p>
+        </a>
       </div>
     </div>
   );

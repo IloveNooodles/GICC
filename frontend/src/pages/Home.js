@@ -11,7 +11,6 @@ const Home = () => {
   return (
     <div className="App" overflowX="hidden">
       <div className="first-section-container">
-        <Navbar />
         <GICC />
       </div>
       <div className="about-us">

@@ -48,15 +48,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-.svg-container {
-  position: relative;
-  overflow: visible;
-}
-
-.svg-container2 {
-  position: relative;
-  overflow: visible;
-}
 
 .left-circle-big {
   position: absolute;
@@ -71,5 +62,5 @@
   height: 300px;
   width: 300px;
   padding: 0;
-  right: -3%;
+  right: 0;
 }

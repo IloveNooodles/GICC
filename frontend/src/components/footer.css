@@ -19,8 +19,9 @@
 }
 
 .upperFooter2-GICC img {
-  width: 286px;
-  height: 146px;
+  width: 350px;
+  height: auto;
+  padding-right: 100px;
 }
 
 .upperFooter2-Contact {
@@ -28,6 +29,11 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+}
+
+.upperFooter2-Contact a {
+  height: auto;
+  text-decoration: none;
 }
 
 .contact-component {

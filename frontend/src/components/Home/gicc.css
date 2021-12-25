@@ -2,70 +2,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 .container {
-  min-height: 100%;
+  background-image: url("../assets/background.png");
+  background-size: 100% 100%;
+  background-color: #213665;
+  padding-bottom: 150px;
 }
 
-.GICC {
-  /* position: absolute; */
-  height: 30%;
-  width: 70%;
+.GICC-container-card {
+  margin-top: 20px;
+}
 
+.GICC-big {
+  margin-top: 30px;
   margin: auto;
-  margin-top: 2vw;
-  padding: 2vw;
-
+  text-align: center;
+  font-weight: 700;
+  font-size: 150px; 
   background: linear-gradient(267.2deg, #ffdc80 41.24%, #26a198 89.6%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
 
-  text-align: center;
+.GICC {
+  height: 350px;
+  margin-left: auto;
+  margin-right: auto;
   font-weight: 700;
-  font-size: 4vw;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 70px; 
+  background: linear-gradient(267.2deg, #ffdc80 41.24%, #26a198 89.6%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .description-GICC {
-  margin-top: 2vw;
-  color: white;
   text-align: center;
-  font-weight: 300;
-  font-size: 1vw;
+  font-size: 20px;
   height: 10%;
-}
-
-.top-border {
-  position: absolute;
-  margin-left: 25vw;
-  margin-top: 1vw;
-  height: 1%;
-  width: 15%;
-  border-radius: 2vw;
-  background: linear-gradient(
-    274.06deg,
-    #78eedd 1.4%,
-    #ffda80 1.41%,
-    #f3dc88 38.86%,
-    #b1e6b6 51.52%,
-    #649ca5 81.39%
-  );
-  transform: rotate(180deg);
-}
-
-.bottom-border {
-  position: absolute;
-  margin-left: 60vw;
-  margin-top: 1vw;
-  height: 1%;
-  width: 15%;
-  border-radius: 2vw;
-  background: linear-gradient(
-    274.06deg,
-    #ffda80 1.4%,
-    #f3dc88 19.12%,
-    #b1e6b6 38.86%,
-    #78eedd 48.99%,
-    #88ecd2 63.16%,
-    #58b0b3 86.25%
-  );
 }
 
 .left-circle {
@@ -74,8 +48,7 @@
   width: 3vw;
 
   position: absolute;
-  margin-left: -5vw;
-  margin-bottom: 400vw;
+  margin-left: 5%;
 
   background: #26a198;
   box-shadow: 0 0 2vw 1vw #26a198;
@@ -87,8 +60,7 @@
   width: 3vw;
 
   position: absolute;
-  margin-left: 70vw;
-  margin-bottom: 400vw;
+  margin-left: 90%;
 
   background: linear-gradient(
     90deg,
@@ -101,8 +73,32 @@
   box-shadow: 0 0 2vw 1vw #ffda80;
 }
 
-.giic-card {
-  background-color: white;
+.GICC-card-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  justify-content: center;
+}
+
+.GICC-card {
+  text-decoration: none;
+
+  min-height: 300px;
+  max-height: 300px;
+  max-width: 250px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.GICC-card:hover {
+  cursor: pointer;
 }
 
 .image-register-board{

@@ -8,8 +8,8 @@ import Description from "../components/Competition/Description";
 const CompetitionPage = () => {
   return (
     <div className="container-competition-page" overflowX="hidden">
-      <div className="contentAU">
         <Navbar />
+      <div className="contentAU">
         <AboutUsCompetition/>
       </div>
       <Description/>
