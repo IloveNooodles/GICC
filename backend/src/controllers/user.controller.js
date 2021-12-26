@@ -20,6 +20,11 @@ const generateEmailVerification = async (email) => {
     console.log(result);
     return result;
   } catch (error) {
+    res.status(500).send({  
+      status: "ERROR", 
+      errorCodes: userModelErrorCodes.CREATE_USER_FAILED, 
+      errorMessage: error.message,
+    });
     console.log(`verification error: ${error.message}`);
   }
 };
@@ -151,9 +156,13 @@ export const verifyEmail = async (req, res) => {
         },
       });
       if (!!updateUser & !!deleteVerification) {
-        return res.status(200).json({ message: "success" });
+        return res.status(200).json({ message: "SUCCESS" });
       }
-      return res.status(400).json({ message: "failed" });
+      res.status(500).send({  
+        status: "ERROR", 
+        errorCodes: userModelErrorCodes.VERIFY_EMAIL_FAILED,
+        errorMessage: error.message,
+      });
     }
     return res.status(403).send({ 
       status: "ERROR", 
