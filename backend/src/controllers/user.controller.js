@@ -80,6 +80,7 @@ export const login = async (req, res) => {
     }
     res.json({ message: "No user found" });
   } catch (error) {
+    res.status(500).send({ errorMessage: error.message });
     console.log(error);
   }
 };
@@ -121,6 +122,7 @@ export const verifyEmail = async (req, res) => {
     }
     res.status(400).json({ message: "not found" });
   } catch (error) {
+    res.status(500).send({ errorMessage: error.message });
     console.log(error);
   }
 };
