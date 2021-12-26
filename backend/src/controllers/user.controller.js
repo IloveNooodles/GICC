@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import crypto from "crypto";
 
 import prisma from "../providers/prisma.js";
+import {userModelErrorCodes, userModelErrorMessage} from "../prisma/usererrors.js";
 
 dotenv.config();
 const saltRounds = 10;
@@ -30,7 +31,11 @@ export const register = async (req, res) => {
 
   if (user) {
     // user already exists
-    return res.status(403).send({ status: "error", error: "Email already exists" });
+    return res.status(403).send({ 
+      status: "ERROR", 
+      errorCodes: userModelErrorCodes.EMAIL_ALREADY_EXIST,
+      errorMessage: userModelErrorMessage.EMAIL_ALREADY_EXIST,
+    });
   }
 
   // Registering participant
@@ -49,9 +54,14 @@ export const register = async (req, res) => {
 
     // Generate Email Verification
     generateEmailVerification(result.email);
-    res.json({ message: "success" });
+    res.json({ status: "SUCCESS" });
   } catch (error) {
-    res.status(500).send({ errorMessage: error.message });
+    res.status(500).send({  
+      status: "ERROR", 
+      errorCodes: userModelErrorCodes.CREATE_USER_FAILED, 
+      errorMessage: error.message,
+    });
+    console.log(error);
   }
 };
 
@@ -67,20 +77,41 @@ export const login = async (req, res) => {
       if (isMatch) {
         if (!result.isEmailVerified) {
           // Email is not verified
-          return res.status(403).json({ message: "email not verified" });
+          return res.status(403).send({ 
+            status: "ERROR", 
+            errorCodes: userModelErrorCodes.EMAIL_NOT_VERIFIED,
+            errorMessage: userModelErrorMessage.EMAIL_NOT_VERIFIED, 
+          });
         }
 
         const token = jwt.sign({ id: result._id, email: result.email }, JWT_SECRET, {
           expiresIn: "5m",
         });
-        return res.send({ token: token });
+        return res.send({ 
+          status: "SUCCESS", 
+          token: token 
+        });
       }
 
-      return res.status(403).json({ message: "Password error" });
+      return res.status(403).send({ 
+        status: "ERROR", 
+        errorCodes: userModelErrorCodes.WRONG_PASSWORD,
+        errorMessage: userModelErrorMessage.WRONG_PASSWORD, 
+      });
+
     }
-    res.json({ message: "No user found" });
+
+    return res.status(403).send({ 
+      status: "ERROR", 
+      errorCodes: userModelErrorCodes.USER_NOT_FOUND,
+      errorMessage: userModelErrorMessage.USER_NOT_FOUND,
+    });
   } catch (error) {
-    res.status(500).send({ errorMessage: error.message });
+    res.status(500).send({  
+      status: "ERROR", 
+      errorCodes: userModelErrorCodes.LOGIN_FAILED,
+      errorMessage: error.message,
+    });
     console.log(error);
   }
 };
@@ -90,7 +121,11 @@ export const verifyEmail = async (req, res) => {
 
   try {
     if (!verificationCode) {
-      return res.status(400).json({ message: "no code provided" });
+      return res.status(403).send({ 
+        status: "ERROR", 
+        errorCodes: userModelErrorCodes.INVALID_VERIFICATION_CODE,
+        errorMessage: userModelErrorMessage.INVALID_VERIFICATION_CODE, 
+      });
     }
 
     // Check for unverified email in database
@@ -120,9 +155,18 @@ export const verifyEmail = async (req, res) => {
       }
       return res.status(400).json({ message: "failed" });
     }
-    res.status(400).json({ message: "not found" });
+    return res.status(403).send({ 
+      status: "ERROR", 
+      errorCodes: userModelErrorCodes.INVALID_VERIFICATION_CODE,
+      errorMessage: userModelErrorMessage.INVALID_VERIFICATION_CODE, 
+    });
+
   } catch (error) {
-    res.status(500).send({ errorMessage: error.message });
+    res.status(500).send({  
+      status: "ERROR", 
+      errorCodes: userModelErrorCodes.VERIFY_EMAIL_FAILED,
+      errorMessage: error.message,
+    });
     console.log(error);
   }
 };
