@@ -17,7 +17,7 @@
   margin: auto;
   text-align: center;
   font-weight: 700;
-  font-size: 150px; 
+  font-size: 150px;
   background: linear-gradient(267.2deg, #ffdc80 41.24%, #26a198 89.6%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -30,7 +30,7 @@
   font-weight: 700;
   text-align: center;
   margin-top: 50px;
-  font-size: 70px; 
+  font-size: 70px;
   background: linear-gradient(267.2deg, #ffdc80 41.24%, #26a198 89.6%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -101,7 +101,7 @@
   cursor: pointer;
 }
 
-.image-register-board{
+.image-register-board {
   width: 88px;
   height: 125px;
   margin-top: 16px;

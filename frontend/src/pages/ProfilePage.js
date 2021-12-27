@@ -2,10 +2,12 @@ import "./ProfilePage.css";
 
 import Navbar from "../components/navbar";
 
+import { Link } from "react-router-dom";
+
 const ProfilePage = () => {
   return (
     <div className="profile-root">
-    <div className="navbar-profile">
+      <div className="navbar-profile">
         <Navbar className="blue-text" />
       </div>
       <div className="profile-container">
@@ -44,14 +46,18 @@ const ProfilePage = () => {
           </div>
           <div className="right-buttons">
             <div className="right-buttons-horizontal">
-              <button className="buttons light-blue-button">
-                Edit Profile
-              </button>
+              <Link to="/editprofile">
+                <button className="buttons light-blue-button">
+                  Edit Profile
+                </button>
+              </Link>
               <button className="buttons light-blue-button">
                 Change Password
               </button>
             </div>
-            <button className="buttons white-text">Log Out</button>
+            <Link to="/">
+              <button className="buttons white-text">Log Out</button>
+            </Link>
           </div>
         </div>
       </div>

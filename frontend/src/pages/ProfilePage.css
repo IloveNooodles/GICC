@@ -9,7 +9,7 @@
 }
 
 .left-profile-container {
-  max-width: 38vw;
+  max-width: 50vw;
   background: url("../components/assets/login-decoration.png") no-repeat;
   background-size: 50vw;
 }
@@ -51,6 +51,17 @@
   -webkit-text-fill-color: transparent;
 }
 
+.right-text-content-profile form {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 50px;
+  height: 400px;
+  width: 300px;
+  font-size: 16px;
+}
+
 .right-text-content-profile {
   margin-top: 50px;
   display: flex;
@@ -64,6 +75,22 @@
 
 .right-text-content-profile span {
   font-weight: 300;
+}
+
+.right-text-content-profile input {
+  width: fit-content;
+  padding: 5px;
+  border: 1px solid rgba(60, 66, 87, 0.12);
+  box-sizing: border-box;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  transition: 0.7s ease;
+}
+
+.right-text-content-profile input:focus {
+  border: 1px black solid;
 }
 
 .items-text-profile {
@@ -96,4 +123,9 @@
 
 .white-text {
   color: white;
+}
+
+.right-buttons a {
+  width: auto;
+  height: auto;
 }
