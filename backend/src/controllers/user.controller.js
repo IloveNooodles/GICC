@@ -6,6 +6,7 @@ import crypto from "crypto";
 import prisma from "../providers/prisma.js";
 import { generateEmailVerification } from "../utils/email-verification.js";
 import { createDirectory } from "../utils/create-dir.js";
+import { userModelErrorCodes, userModelErrorMessage } from "../prisma/usererrors.js";
 
 dotenv.config();
 const saltRounds = 10;
@@ -13,21 +14,19 @@ const JWT_SECRET = process.env.jwt;
 
 /* Register as team leader */
 export const registerLeader = async (req, res) => {
-  const {
-    fullName,
-    email,
-    password,
-    institution,
-    faculty,
-    teamName,
-    referralCode,
-    birthDate,
-  } = req.body;
+  const { fullName, email, password, institution, faculty, teamName, referralCode, birthDate } =
+    req.body;
 
   try {
     // check for existing users
     const user = await prisma.user.findUnique({ where: { email: email } });
-    if (user) return res.status(400).json({ message: "email already exists" });
+    if (user) {
+      return res.status(403).send({
+        status: "ERROR",
+        errorCodes: userModelErrorCodes.EMAIL_ALREADY_EXIST,
+        errorMessage: userModelErrorMessage.EMAIL_ALREADY_EXIST,
+      });
+    }
 
     // check for team name
     const team = await prisma.team.findUnique({ where: { name: teamName } });
@@ -59,7 +58,7 @@ export const registerLeader = async (req, res) => {
             isTeamLeader: true,
             referralCode: referralCode || "",
             birthDate: birthDate,
-            filePath: pathUser
+            filePath: pathUser,
           },
         },
       },
@@ -72,20 +71,29 @@ export const registerLeader = async (req, res) => {
 
     res.status(200).json({ message: "success", data: teamResult });
   } catch (err) {
-    res.status(500).json({ message: "server error" });
-    console.log(err.message);
+    res.status(500).send({
+      status: "ERROR",
+      errorCodes: userModelErrorCodes.CREATE_USER_FAILED,
+      errorMessage: error.message,
+    });
+    console.log(`account creation error: ${error.message}`);
   }
 };
 
 export const registerMember = async (req, res) => {
-  const { fullName, email, password, institution, faculty, teamCode, birthDate } =
-    req.body;
+  const { fullName, email, password, institution, faculty, teamCode, birthDate } = req.body;
   const memberLimit = 3;
 
   try {
     // check for existing users
     const user = await prisma.user.findUnique({ where: { email: email } });
-    if (user) return res.status(400).json({ message: "email already exists" });
+    if (user) {
+      return res.status(403).send({
+        status: "ERROR",
+        errorCodes: userModelErrorCodes.EMAIL_ALREADY_EXIST,
+        errorMessage: userModelErrorMessage.EMAIL_ALREADY_EXIST,
+      });
+    }
 
     const teamResult = await prisma.team.findFirst({ where: { code: teamCode } });
     if (!teamResult) return res.status(400).json({ message: "no team found" });
@@ -127,10 +135,14 @@ export const registerMember = async (req, res) => {
     const emailResult = await generateEmailVerification(email);
     if (!emailResult) return res.status(500).json({ message: "email verification creation error" });
 
-    res.status(200).json({ message: "success" });
-  } catch (err) {
-    console.log(`member register error: ${err.message}`);
-    res.status(500).json({ message: "server error" });
+    res.json({ status: "SUCCESS" });
+  } catch (error) {
+    res.status(500).send({
+      status: "ERROR",
+      errorCodes: userModelErrorCodes.CREATE_USER_FAILED,
+      errorMessage: error.message,
+    });
+    console.log(`account cration error: ${error.message}`);
   }
 };
 
@@ -142,15 +154,34 @@ export const login = async (req, res) => {
       include: { team: true },
     });
 
-    if (!result) return res.status(500).json({ message: "no user found" });
+    if (!result) {
+      return res.status(403).send({
+        status: "ERROR",
+        errorCodes: userModelErrorCodes.USER_NOT_FOUND,
+        errorMessage: userModelErrorMessage.USER_NOT_FOUND,
+      });
+    }
 
-    // if password match, check for verified email
+    // check for password match
     const hashedPassword = result.password;
     const isMatch = await bcrypt.compare(password, hashedPassword);
 
-    if (!isMatch) return res.status(403).json({ message: "password error" });
+    if (!isMatch) {
+      return res.status(403).send({
+        status: "ERROR",
+        errorCodes: userModelErrorCodes.WRONG_PASSWORD,
+        errorMessage: userModelErrorMessage.WRONG_PASSWORD,
+      });
+    }
 
-    if (!result.isEmailVerified) return res.status(403).json({ message: "email not verified" });
+    // check for verified email
+    if (!result.isEmailVerified) {
+      return res.status(403).send({
+        status: "ERROR",
+        errorCodes: userModelErrorCodes.EMAIL_NOT_VERIFIED,
+        errorMessage: userModelErrorMessage.EMAIL_NOT_VERIFIED,
+      });
+    }
 
     const token = await jwt.sign(
       {
@@ -164,10 +195,17 @@ export const login = async (req, res) => {
         issuer: "gicc2022",
       }
     );
-    res.json({ token: token });
+    return res.send({
+      status: "SUCCESS",
+      token: token,
+    });
   } catch (error) {
     console.log(`login error: ${error.message}`);
-    res.status(500).json({ message: "server serror" });
+    res.status(500).send({
+      status: "ERROR",
+      errorCodes: userModelErrorCodes.LOGIN_FAILED,
+      errorMessage: error.message,
+    });
   }
 };
 
@@ -176,7 +214,11 @@ export const verifyEmail = async (req, res) => {
   const verificationCode = query.code;
   try {
     if (!verificationCode) {
-      return res.status(400).json({ message: "no code provided" });
+      return res.status(403).send({
+        status: "ERROR",
+        errorCodes: userModelErrorCodes.INVALID_VERIFICATION_CODE,
+        errorMessage: userModelErrorMessage.INVALID_VERIFICATION_CODE,
+      });
     }
 
     // Check for unverified email in database
@@ -202,12 +244,25 @@ export const verifyEmail = async (req, res) => {
         },
       });
       if (!!updateUser & !!deleteVerification) {
-        return res.status(200).json({ message: "success" });
+        return res.status(200).json({ message: "SUCCESS" });
       }
-      return res.status(500).json({ message: "failed" });
+      res.status(500).send({
+        status: "ERROR",
+        errorCodes: userModelErrorCodes.VERIFY_EMAIL_FAILED,
+        errorMessage: error.message,
+      });
     }
-    res.status(400).json({ message: "not found" });
+    return res.status(403).send({
+      status: "ERROR",
+      errorCodes: userModelErrorCodes.INVALID_VERIFICATION_CODE,
+      errorMessage: userModelErrorMessage.INVALID_VERIFICATION_CODE,
+    });
   } catch (error) {
+    res.status(500).send({
+      status: "ERROR",
+      errorCodes: userModelErrorCodes.VERIFY_EMAIL_FAILED,
+      errorMessage: error.message,
+    });
     console.log(error);
   }
 };
