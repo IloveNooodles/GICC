@@ -34,9 +34,14 @@ Please use this link to verify your account: http://127.0.0.1:3000/user/verify-e
       data: { email: email, verificationCode: token },
     });
 
-    if (!result)
-      return res.status(500).json({ message: "server error on creating email verification" });
-
+    if (!result){
+      return res.status(500).send({
+        status: "ERROR",
+        errorCodes: userModelErrorCodes.EMAIL_VERIFICATION_CREATION_ERROR,
+        errorMessage: userModelErrorMessage.EMAIL_VERIFICATION_CREATION_ERROR,
+      });
+    }
+  
     const sentMail = await transporter.sendMail(options);
 
     return sentMail;

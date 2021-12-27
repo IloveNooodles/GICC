@@ -7,6 +7,17 @@ export const userModelErrorCodes = Object.freeze({
     CREATE_USER_FAILED: "CREATE_USER_ERROR",
     LOGIN_FAILED: "LOGIN_FAILED",
     VERIFY_EMAIL_FAILED: "VERIFY_EMAIL_FAILED",
+    UNAUTHORIZED: "UNAUTHORIZED",
+    INVALID_TOKEN: "INVALID_TOKEN",
+    SESSION_EXPIRED: "SESSION_EXPIRED",
+    SERVER_ERROR: "SERVER_ERROR",
+    INVALID_TEAM_CODE: "INVALID_TEAM_CODE",
+    ACCOUNT_CREATION_ERROR: "ACCOUNT_CREATION_ERROR",
+    USER_DIRECTORY_CREATION_ERROR: "USER_DIRECTORY_CREATION_ERROR",
+    TEAM_ALREADY_FULL: "TEAM_ALREADY_FULL",
+    EMAIL_VERIFICATION_CREATION_ERROR: "EMAIL_VERIFICATION_CREATION_ERROR",
+    TEAM_NAME_ALREADY_TAKEN: "TEAM_NAME_ALREADY_TAKEN",
+    TEAM_DIRECTORY_CREATION_ERROR: "TEAM_DIRECTORY_CREATION_ERROR",
 });
 
 export const userModelErrorMessage = Object.freeze({
@@ -18,4 +29,15 @@ export const userModelErrorMessage = Object.freeze({
     CREATE_USER_FAILED: "There is an error while creating your data",
     LOGIN_FAILED: "There is an error while log in to your account",
     VERIFY_EMAIL_FAILED: "There is an error while verify your email",
+    UNAUTHORIZED: "The token is not authorized, please register and verify",
+    INVALID_TOKEN: "The token either wrong or invalid",
+    SESSION_EXPIRED: "The log in session has expired",
+    SERVER_ERROR: "The server returned an error",
+    INVALID_TEAM_CODE: "The team code is either wrong or invalid",
+    ACCOUNT_CREATION_ERROR: "An error occured when creating the account",
+    USER_DIRECTORY_CREATION_ERROR: "An error occured when creating the user directory",
+    TEAM_ALREADY_FULL: "The team is already full, please remove another member, create a new team, or join another team",
+    EMAIL_VERIFICATION_CREATION_ERROR: "An error occured when creating email verification",
+    TEAM_NAME_ALREADY_TAKEN: "The team name is already taken by another team, please use another name",
+    TEAM_DIRECTORY_CREATION_ERROR: "An error occured when creating the team directory",
 });
