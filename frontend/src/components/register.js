@@ -15,13 +15,21 @@ const Signup = () => {
       <div className="register-title">Register to Competition</div>
 
       <div className="register-card-container">
-        <Link to="/login" className="register-card">
+        <Link to="/register-leader" className="register-card">
           <img src={RegisterCard1} className="register-card-image" />
           Register as Team Leader
         </Link>
-        <Link to="/login" className="register-card">
+        <Link to="/register-member" className="register-card">
           <img src={RegisterCard2} className="register-card-image-2" />
           Register as Team Member
+        </Link>
+      </div>
+      <div className="to-login-container">
+        <div className="to-login-title">
+          Already have an account? <br></br>
+        </div>
+        <Link to="/login">
+          <button className="to-login">Log In</button>
         </Link>
       </div>
       <Footer />

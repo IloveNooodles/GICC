@@ -30,13 +30,17 @@ const Footer = () => {
             <img src={Line} alt="Line" />
             <p>@672xydvh</p>
           </div>
-          <a href="https://www.linkedin.com/company/ganesha-icc/">
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/ganesha-icc/"
+          >
             <div className="contact-component">
               <img src={Linkedin} alt="Linkedin" />
               <p>Ganesha Integration Case Competition (GICC)</p>
             </div>
           </a>
           <a
+            target="_blank"
             style={{ height: "auto" }}
             href="https://www.instagram.com/ganesha.icc/"
           >
