@@ -14,7 +14,9 @@ function Navbar() {
           <Link
             to="/"
             className={`link-style ${
-              pathname === "/profile" ? "blue-text" : ""
+              pathname === "/profile" || pathname === "/editprofile"
+                ? "blue-text"
+                : ""
             }`}
           >
             Home
@@ -22,7 +24,9 @@ function Navbar() {
           <Link
             to="/competition"
             className={`link-style ${
-              pathname === "/profile" ? "blue-text" : ""
+              pathname === "/profile" || pathname === "/editprofile"
+                ? "blue-text"
+                : ""
             }`}
           >
             Competition
@@ -30,7 +34,9 @@ function Navbar() {
           <Link
             to="/pre-event"
             className={`link-style ${
-              pathname === "/profile" ? "blue-text" : ""
+              pathname === "/profile" || pathname === "/editprofile"
+                ? "blue-text"
+                : ""
             }`}
           >
             Pre-Event
@@ -38,7 +44,9 @@ function Navbar() {
           <Link
             to="/profile"
             className={`link-style ${
-              pathname === "/profile" ? "blue-text" : ""
+              pathname === "/profile" || pathname === "/editprofile"
+                ? "blue-text"
+                : ""
             }`}
           >
             Profile
