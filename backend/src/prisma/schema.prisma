@@ -11,18 +11,52 @@ datasource db {
 }
 
 model User {
-  id              Int     @id @default(autoincrement())
-  email           String  @unique
+  id              Int      @id @default(autoincrement())
+  email           String   @unique
   password        String
-  firstName       String
-  lastName        String
-  isEmailVerified Boolean @default(false)
-  isFileVerified  Boolean @default(false)
-  filePath        String  @default("")
+  fullName        String
+  birthDate       DateTime @default("2000-01-01T00:00:00.00Z")
+  institution     String?
+  faculty         String?
+  lineID          String?
+  phoneNumber     String?
+  referralCode    String?
+  isEmailVerified Boolean  @default(false)
+  isFileVerified  Boolean  @default(false)
+  isTeamLeader    Boolean  @default(false)
+  filePath        String   @default("")
+  file            File[]
+  team            Team?    @relation(fields: [teamId], references: [id])
+  teamId          Int?
 }
 
-model EmailVerif {
+model EmailVerification {
   id               Int    @id @default(autoincrement())
   email            String @unique
   verificationCode String
+}
+
+model Team {
+  id             Int     @id @default(autoincrement())
+  name           String  @unique
+  code           String
+  member         User[]
+  noOfMember     Int
+  submissionPath String  @default("")
+  submissionName String?
+}
+
+model File {
+  id     Int      @id @default(autoincrement())
+  type   FileType
+  name   String
+  User   User?    @relation(fields: [userId], references: [id])
+  userId Int?
+}
+
+enum FileType {
+  STUDENT_ID
+  TWIBBON
+  RECEIPT
+  UNKNOWN
 }
