@@ -14,6 +14,11 @@ const Description = () => {
                     Ganesha Integration Case Competition 2022 is a simulation for undergraduate students about the real “how working in Industry” that deploys in the form of competition. This program encourages students to innovate and solve real industrial problems that really exist from our Company Ca
                 </div>
             </div>
+            <div className="guide-button-container">
+              <button className="guide-button">
+                Download Guide Book
+              </button>
+            </div>
         </div>
     )
 }
