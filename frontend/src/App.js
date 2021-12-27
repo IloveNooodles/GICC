@@ -8,6 +8,8 @@ import CompetitionPage from "./pages/CompetitionPage";
 import Login from "./components/login";
 import Register from "./components/register"
 import PreEventPage from "./pages/PreEventPage"
+import RegisterLeader from "./components/registerLeader"
+import RegisterMember from "./components/registerMember";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -19,7 +21,9 @@ function App() {
         <Route path="/competition" element={<CompetitionPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />}/>
-        <Route path="/preevent" element={<PreEventPage />}/>
+        <Route path="/pre-event" element={<PreEventPage />}/>
+        <Route path="/register-leader" element={<RegisterLeader />} />
+        <Route path="/register-member" element={<RegisterMember />} />
       </Routes>
     </BrowserRouter>
   );

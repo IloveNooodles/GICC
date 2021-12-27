@@ -17,7 +17,7 @@ function Navbar() {
           <Link to="/competition" className="link-style">
             Competition
           </Link>
-          <Link to="/preevent" className="link-style">
+          <Link to="/pre-event" className="link-style">
             Pre-Event
           </Link>
           <Link to="/profile" className="link-style">

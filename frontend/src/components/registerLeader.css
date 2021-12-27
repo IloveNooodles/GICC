@@ -1,0 +1,182 @@
+.register-leader-container {
+  background-color: #E5E5E5;
+}
+
+.register-leader-background {
+  background-image: url("./assets/background-2.png");
+  background-size: 100% 100%;
+  height: 40%;
+}
+
+.register-leader-title {
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
+
+.register-leader-form {
+  background-color: #E5E5E5;
+  padding-top: 50px;
+  color: #143061;
+  font-weight: 600;
+  align-items: center;
+  display: grid;
+  padding-bottom: 100px;
+  justify-content: center;
+}
+
+.register-leader-card {
+  height: fit-content;
+  padding-left: 150px;
+}
+
+.register-leader-card-2 {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  padding-left: 150px;
+  column-gap: 2%;
+}
+
+.gender-container {
+  color: #828282;
+  font-weight: 600;
+  height: fit-content;
+}
+
+.institution-container,
+.major-container {
+  width: 36.6%;
+}
+
+.competition-container {
+  color: #828282;
+  font-weight: 600;
+  height: fit-content;
+}
+
+.address-input {
+  margin-top: 10px;
+  width: 75%;
+  height: 100%;
+  padding: 5px;
+  font-size: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  border: none;
+}
+
+.dob-input {
+  margin-top: 10px;
+  width: 75%;
+  height: 100%;
+  padding: 5px;
+  font-size: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  border: none;
+}
+
+.male-input {
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+  border: none;
+}
+
+.female-input {
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 15px;
+  width: 15px;
+  height: 15px;
+  border: none;
+}
+
+.institution-input {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  font-size: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  border: none;
+}
+
+.major-input {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  font-size: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  border: none;
+}
+
+.competition-input {
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+  border: none;
+}
+
+.team-name-input {
+  margin-top: 10px;
+  width: 75%;
+  height: 100%;
+  padding: 5px;
+  font-size: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  border: none;
+}
+
+.referral-code-input {
+  margin-top: 10px;
+  width: 75%;
+  height: 100%;
+  padding: 5px;
+  font-size: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  border: none;
+}
+
+.referral-code-icon {
+  width: 10px;
+  height: 10px;
+  font-size: 8px;
+  border-radius: 50%;
+  border: 1px solid #828282;
+  padding: 5px;
+  text-align: center;
+  float: left;
+  margin-right: 5px;
+}
+
+.referral-code-description {
+  padding-top: 10px;
+  width: 75%;
+  font-weight: 500;
+  font-size: 16px;
+  color: #828282;
+}
+
+.submit-button {
+  height: auto;
+  width: 250px;
+  border-radius: 50px;
+  padding: 10px;
+  font-size: 16px;
+  color: #26a198;
+  background-color: #143061;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  align-self: center;
+  margin-left: 475px;
+}
