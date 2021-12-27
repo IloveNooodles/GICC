@@ -11,16 +11,36 @@ function Navbar() {
     <div className="navbar">
       <div className="right-section">
         <div className="links-container">
-          <Link to="/" className="link-style">
+          <Link
+            to="/"
+            className={`link-style ${
+              pathname === "/profile" ? "blue-text" : ""
+            }`}
+          >
             Home
           </Link>
-          <Link to="/competition" className="link-style">
+          <Link
+            to="/competition"
+            className={`link-style ${
+              pathname === "/profile" ? "blue-text" : ""
+            }`}
+          >
             Competition
           </Link>
-          <Link to="/pre-event" className="link-style">
+          <Link
+            to="/pre-event"
+            className={`link-style ${
+              pathname === "/profile" ? "blue-text" : ""
+            }`}
+          >
             Pre-Event
           </Link>
-          <Link to="/profile" className="link-style">
+          <Link
+            to="/profile"
+            className={`link-style ${
+              pathname === "/profile" ? "blue-text" : ""
+            }`}
+          >
             Profile
           </Link>
           <Link

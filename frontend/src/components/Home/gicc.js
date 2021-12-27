@@ -25,14 +25,14 @@ function gicc() {
           />
           <p style={{ color: "white" }}>Register Competition</p>
         </Link>
-        <a className="GICC-card">
+        <Link to="/pre-event" className="GICC-card">
           <img
             src={registerBoard}
             alt="register-board"
             className="image-register-board"
           />
           <p style={{ color: "white" }}>Register Pre-Event</p>
-        </a>
+        </Link>
       </div>
     </div>
   );

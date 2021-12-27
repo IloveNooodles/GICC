@@ -1,0 +1,99 @@
+.navbar-profile {
+  position: fixed;
+  height: auto;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-profile-container {
+  max-width: 38vw;
+  background: url("../components/assets/login-decoration.png") no-repeat;
+  background-size: 50vw;
+}
+
+.buttons {
+  height: auto;
+  width: 250px;
+  border-radius: 50px;
+  padding: 10px;
+  font-size: 16px;
+  color: #26a198;
+  background-color: #143061;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.buttons:hover {
+  transition: all ease 0.4s;
+  background-color: white;
+  border: 1px solid #143061;
+  color: #143061;
+}
+
+.right-profile-container {
+  margin-top: 200px;
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 200px);
+}
+
+.right-profile-container h1 {
+  font-size: 48px;
+  height: fit-content;
+  width: fit-content;
+  background: linear-gradient(267.2deg, #143061 3%, #26a198 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.right-text-content-profile {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 50px;
+  height: 400px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.right-text-content-profile span {
+  font-weight: 300;
+}
+
+.items-text-profile {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.right-buttons {
+  margin-top: 50px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-buttons-horizontal {
+  height: fit-content;
+  margin-bottom: 20px;
+}
+
+.right-buttons-horizontal button {
+  margin: 0 10px;
+}
+
+.light-blue-button {
+  background-color: #26a198;
+  color: #143061;
+}
+
+.white-text {
+  color: white;
+}

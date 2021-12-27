@@ -1,5 +1,5 @@
 import "./login.css";
-import GiccImage from "./assets/gicc.png"
+import GiccImage from "./assets/gicc.png";
 import Linkedin from "./assets/jam_linkedin-circle.png";
 import Facebook from "./assets/jam_facebook-circle.png";
 import { Link } from "react-router-dom";
@@ -17,8 +17,6 @@ const Login = () => {
             We empowering youth through professional cooperation exerience in
             solving industrial problems
           </p>
-        </div>
-        <div className="homepage-button">
           <Link to="/">
             <button>Go To Homepage</button>
           </Link>
@@ -30,11 +28,11 @@ const Login = () => {
           <form>
             <div className="login-form-content">
               <p>Email</p>
-              <input type="text" />
+              <input type="text" placeholder="gicc2021@gmail.com"/>
             </div>
             <div className="login-form-content">
               <p>Password</p>
-              <input type="password" />
+              <input type="password" placeholder="inipasswordnyakuatbangetloh"/>
             </div>
           </form>
         </div>

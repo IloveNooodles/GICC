@@ -49,8 +49,8 @@
   -webkit-text-fill-color: transparent;
   height: auto;
   width: fit-content;
-  margin-left: 32px;
-  padding-left: 32px;
+  text-align: start;
+  margin-right: 80px;
 }
 
 .login-text-content {
@@ -63,6 +63,8 @@
 
 .homepage-button {
   display: flex;
+  height: auto;
+  width: auto;
 }
 
 .left-login a {
@@ -75,8 +77,6 @@
   color: white;
   width: 506px;
   height: 100px;
-  margin-left: 36px;
-  padding-left: 36px;
   font-weight: 300;
 }
 
@@ -105,6 +105,10 @@
   align-items: center;
 }
 
+.login-form-container p{
+  width: 150px;
+}
+
 .right-login h1 {
   height: auto;
   padding-bottom: 40px;
@@ -130,7 +134,7 @@
 }
 
 .sign-up-container p span {
-  color: #20245C;
+  color: #20245c;
   cursor: pointer;
   font-weight: bold;
 }
@@ -153,6 +157,7 @@
   border-bottom: 2px solid #143061;
   padding-left: 5px;
   transition: 0.4s ease;
+  width: 300px;
 }
 
 .right-login form input:focus {
