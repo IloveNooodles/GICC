@@ -1,5 +1,13 @@
 import { Router } from "express";
 
+import { 
+  JRegisterMemberRequestBody,
+  JRegisterLeaderRequestBody,
+  JVerifyEmailRequestQuery,
+  JSignInRequestBody,
+  JChangePasswordRequestHeader,
+  JChangePasswordRequestBody,
+} from '../controllers/user.validation.js'
 import {
   changePassword,
   login,
@@ -9,15 +17,6 @@ import {
 } from "../controllers/user.controller.js";
 import { checkLogin } from "../middleware/auth.js";
 import { RequestValidation } from '../middleware/request_validation.js';
-
-import { 
-  JRegisterMemberRequestBody,
-  JRegisterLeaderRequestBody,
-  JVerifyEmailRequestQuery,
-  JSignInRequestBody,
-  JChangePasswordRequestHeader,
-  JChangePasswordRequestBody,
-} from '../controllers/user.validation.js'
 
 const router = Router();
 
