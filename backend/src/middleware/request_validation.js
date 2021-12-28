@@ -6,8 +6,8 @@ export const RequestValidation = (s) => {
         try {
             let valid;
             for (const loc of Object.keys(s)) {
-                valid = await JRegisterMemberRequestBody.validate(req[loc]);
-                console.log(valid.error);
+                valid = await s[loc].validate(req[loc]);
+               
                 if(valid.error) {
                     return res.status(400).json({
                         errorCode: 'INVALID_REQUEST'
