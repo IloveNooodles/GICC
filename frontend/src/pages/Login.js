@@ -1,7 +1,7 @@
-import "./login.css";
-import GiccImage from "./assets/gicc.png";
-import Linkedin from "./assets/jam_linkedin-circle.png";
-import Facebook from "./assets/jam_facebook-circle.png";
+import "./Login.css";
+import GiccImage from "../components/assets/gicc.png"
+import Linkedin from "../components/assets/jam_linkedin-circle.png";
+import Facebook from "../components/assets/jam_facebook-circle.png";
 import { Link } from "react-router-dom";
 
 const Login = () => {

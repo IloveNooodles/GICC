@@ -5,11 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Home from "./pages/Home";
 import CompetitionPage from "./pages/CompetitionPage";
-import Login from "./components/login";
-import Register from "./components/register";
+import Login from "./pages/Login";
+import Register from "./pages/Register"
 import PreEventPage from "./pages/PreEventPage";
-import RegisterLeader from "./components/registerLeader";
-import RegisterMember from "./components/registerMember";
+import RegisterMember from "./components/Register/registerMember";
+import RegisterLeader from "./components/Register/registerLeader";
 import ProfilePage from "./pages/ProfilePage";
 import EditProfilePage from "./pages/EditProfilePage";
 

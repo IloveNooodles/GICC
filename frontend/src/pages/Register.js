@@ -1,12 +1,9 @@
-import "./register.css";
-import GiccImage from "./assets/Logo GICC 2022 (On Dark) 2.png";
-import Linkedin from "./assets/jam_linkedin-circle.png";
-import Facebook from "./assets/jam_facebook-circle.png";
-import Navbar from "./navbar";
-import Footer from "./footer";
+import "./Register.css";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 import { Link } from "react-router-dom";
-import RegisterCard1 from "./assets/register-card-1.png";
-import RegisterCard2 from "./assets/register-card-2.png";
+import RegisterCard1 from "../components/assets/register-card-1.png";
+import RegisterCard2 from "../components/assets/register-card-2.png";
 
 const Signup = () => {
   return (

@@ -21,7 +21,7 @@ const Competition = () => {
         </div>
       </div>
       <div class="containerCard">
-        <div class="card" data-aos="fade-down">
+        <div class="card" data-aos="fade-down" data-aos-duration="1000">
           <img src={Marketing} alt="marketing" class="cardImage" />
           <div class="cardTitle">Marketing</div>
           <div class="cardContent">
@@ -31,7 +31,7 @@ const Competition = () => {
             quia, suscipit asperiores vitae libero.
           </div>
         </div>
-        <div class="card" data-aos="fade-down">
+        <div class="card" data-aos="fade-down" data-aos-duration="1000">
           <img src={Operations} alt="operations" class="cardImage" />
           <div class="cardTitle">Operations</div>
           <div class="cardContent">
@@ -41,7 +41,7 @@ const Competition = () => {
             quia, suscipit asperiores vitae libero.
           </div>
         </div>
-        <div class="card" data-aos="fade-down">
+        <div class="card" data-aos="fade-down" data-aos-duration="1000">
           <img src={EHS} alt="EHS" class="cardImage" />
           <div class="cardTitle">EHS</div>
           <div class="cardContent">
