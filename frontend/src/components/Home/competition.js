@@ -2,6 +2,7 @@ import "./competition.css";
 import EHS from "../assets/EHS.png";
 import Operations from "../assets/operations.png";
 import Marketing from "../assets/marketing.png";
+
 const Competition = () => {
   return (
     <div class="containerCompetition">
@@ -20,7 +21,7 @@ const Competition = () => {
         </div>
       </div>
       <div class="containerCard">
-        <div class="card">
+        <div class="card" data-aos="fade-down">
           <img src={Marketing} alt="marketing" class="cardImage" />
           <div class="cardTitle">Marketing</div>
           <div class="cardContent">
@@ -30,7 +31,7 @@ const Competition = () => {
             quia, suscipit asperiores vitae libero.
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-down">
           <img src={Operations} alt="operations" class="cardImage" />
           <div class="cardTitle">Operations</div>
           <div class="cardContent">
@@ -40,7 +41,7 @@ const Competition = () => {
             quia, suscipit asperiores vitae libero.
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-down">
           <img src={EHS} alt="EHS" class="cardImage" />
           <div class="cardTitle">EHS</div>
           <div class="cardContent">
