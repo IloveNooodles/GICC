@@ -52,7 +52,7 @@ function Navbar() {
             Profile
           </Link>
           <Link
-            to="/register"
+            to="/login"
             className={`link-style ${
               pathname === "/competition"
                 ? "active-nav-competition"
