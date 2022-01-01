@@ -47,7 +47,7 @@ const Login = () => {
         <div className="sign-up-container">
           <p>
             Don't have an account? <br />
-            <Link to="/register">
+            <Link to="/register" style = {{textDecoration : 'none'}}>
               <span>Sign Up Here</span>
             </Link>
           </p>
