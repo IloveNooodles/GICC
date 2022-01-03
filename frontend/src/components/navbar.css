@@ -31,11 +31,13 @@ img {
   color: #f2f2f2;
   height: fit-content;
   width: fit-content;
+  transition: 0.1s;
 }
 
 .link-style:hover {
   cursor: pointer;
-  text-decoration: underline;
+  border-bottom: 3px solid yellow;
+  color: #102853;
 }
 
 .links-container {

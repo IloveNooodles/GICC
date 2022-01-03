@@ -50,16 +50,16 @@
 
 .left-circle-big {
   position: absolute;
-  height: 400px;
-  width: 400px;
+  height: clamp(100px, 300px, 400px);
+  width: clamp(100px, 300px, 400px);
   padding: 0;
   left: -7%;
 }
 
 .right-circle-big {
   position: absolute;
-  height: 300px;
-  width: 300px;
+  height: clamp(100px, 300px, 400px);
+  width: clamp(100px, 300px, 400px);
   padding: 0;
   right: 0;
 }

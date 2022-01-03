@@ -1,17 +1,33 @@
 import "./ProfilePage.css";
 
 import Navbar from "../components/navbar";
+import { useState } from "react";
 
 import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
+  const [name, setName] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+
   return (
     <div className="profile-root">
       <div className="navbar-profile">
         <Navbar className="blue-text" />
       </div>
       <div className="profile-container">
-        <div className="left-profile-container"></div>
+        <div className="left-profile-container">
+          <p>Upload your submission</p>
+          <div className="form-container">
+            <form>
+              <input
+                type="file"
+                value={selectedFile}
+                className="upload-input"
+                onChange={(e) => setSelectedFile(e.target.files[0])}
+              />
+            </form>
+          </div>
+        </div>
         <div className="right-profile-container">
           <h1>Profile</h1>
           <div className="right-text-content-profile">
