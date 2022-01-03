@@ -6,9 +6,21 @@ const AboutUsCompetition = () => {
   return (
     <div className="container-body">
       <div className="container-title-aboutus">
-        <img src={Rectangle1} className="right-rectangle" />
-        <img src={Rectangle2} className="left-rectangle" />
-        <h1>
+        <img
+          src={Rectangle1}
+          className="right-rectangle"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="500"
+        />
+        <img
+          src={Rectangle2}
+          className="left-rectangle"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="500"
+        />
+        <h1 data-aos="fade-right">
           About <br /> Us
         </h1>
       </div>

@@ -5,8 +5,21 @@ import Circle2 from "../assets/Rectangle.svg";
 const AboutUs = () => {
   return (
     <div className="container-about">
-      <img src={Circle2} alt="decoration1" className="left-circle-big" data-aos="fade-up" data-aos-duration="1000"/>
-      <img src={Circle} alt="decotartion2" className="right-circle-big" data-aos="fade-up" data-aos-duration="1000" />
+      <img
+        src={Circle2}
+        alt="decoration1"
+        className="left-circle-big"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      />
+      <img
+        src={Circle}
+        alt="decoration2"
+        className="right-circle-big"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      />
       <div className="container-aboutus">
         <div className="container-title-aboutus">
           <h1>
