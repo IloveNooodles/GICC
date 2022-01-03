@@ -28,11 +28,14 @@ const Login = () => {
           <form>
             <div className="login-form-content">
               <p>Email</p>
-              <input type="text" placeholder="gicc2021@gmail.com"/>
+              <input type="text" placeholder="gicc2021@gmail.com" />
             </div>
             <div className="login-form-content">
               <p>Password</p>
-              <input type="password" placeholder="inipasswordnyakuatbangetloh"/>
+              <input
+                type="password"
+                placeholder="inipasswordnyakuatbangetloh"
+              />
             </div>
           </form>
         </div>

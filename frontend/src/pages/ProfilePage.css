@@ -12,6 +12,39 @@
   max-width: 50vw;
   background: url("../components/assets/login-decoration.png") no-repeat;
   background-size: 50vw;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-profile-container p{
+  height: fit-content;
+  height: fit-content;
+  padding: 1rem;
+  font-size: 36px;
+  background: linear-gradient(267.2deg, #ffdc80 41.24%, #26a198 89.6%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.form-container input {
+  width: fit-content;
+}
+
+.upload-input input {
+  text-align: center;
+  width: fit-content;
 }
 
 .buttons {
