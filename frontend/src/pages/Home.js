@@ -20,9 +20,9 @@ const Home = () => {
       <div className="competition">
         <Competition />
       </div>
-      {/* <div className="sponsor">
-         <Sponsor />  
-      </div> */}
+      <div className="sponsor">
+        <Sponsor />  
+      </div>
       <div className="footer">
         <Footer />
       </div>

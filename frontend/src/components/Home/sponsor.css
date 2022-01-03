@@ -1,5 +1,7 @@
 .sponsor-container{
   padding-top: 40px;
+  padding-bottom: 40px;
+  height: fit-content;
 }
 
 .sponsor-title {
@@ -13,14 +15,65 @@
   margin-bottom: 20px;
 }
 
-.sponsor img {
-  margin: 0 auto;
-  padding: 0;
-  height: 400px;
- 
+.sponsor-card-container {
+  margin: auto;
+  width: 70%;
+  height: 60%;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 60px;
+  display: flex;
+  flex-direction: row;
 }
 
-.sponsor-slider-container {
-  /* height: 1000px;
-  width: 1000px; */
+.sponsor-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsor-exc-logo {
+  padding: 0;
+  height: auto;
+  width: 250px;
+  object-fit: cover;
+}
+
+.sponsor-learn-more {
+  margin-top: 20px;
+  background: #26A198;
+  color: #143061;
+  border: none;
+  border-radius: 40px;
+  padding: 10px;
+  width: 100px;
+  height: fit-content;
+}
+
+.sponsor-learn-more:hover {
+  cursor: pointer;
+  background: #143061;
+  color: #26A198;
+}
+
+.sponsor-card-container-2 {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  row-gap: 20px;
+  align-items: center;
+  margin-top: 40px;
+  padding: 0;
+}
+
+.sponsor-card-2 {
+  margin: auto;
+  width: 65%;
+}
+
+.sponsor-card-2 img{
+  width: 100%;
+  padding: 0;
+  height: auto;
+  object-fit: cover;
 }
