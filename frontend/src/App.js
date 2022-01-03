@@ -5,11 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Home from "./pages/Home";
 import CompetitionPage from "./pages/CompetitionPage";
-import Login from "./components/login";
-import Register from "./components/register";
+import Login from "./pages/Login";
 import PreEventPage from "./pages/PreEventPage";
-import RegisterLeader from "./components/registerLeader";
-import RegisterMember from "./components/registerMember";
+import Register from "./pages/Register";
 import ProfilePage from "./pages/ProfilePage";
 import EditProfilePage from "./pages/EditProfilePage";
 
@@ -26,8 +24,6 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/editprofile" element={<EditProfilePage />} />
         <Route path="/pre-event" element={<PreEventPage />} />
-        <Route path="/register-leader" element={<RegisterLeader />} />
-        <Route path="/register-member" element={<RegisterMember />} />
       </Routes>
     </BrowserRouter>
   );

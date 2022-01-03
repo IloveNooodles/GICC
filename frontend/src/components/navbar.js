@@ -13,6 +13,7 @@ function Navbar() {
         <div className="links-container">
           <Link
             to="/"
+            style = {{textDecoration : 'none'}}
             className={`link-style ${
               pathname === "/profile" || pathname === "/editprofile"
                 ? "blue-text"
@@ -23,6 +24,7 @@ function Navbar() {
           </Link>
           <Link
             to="/competition"
+            style = {{textDecoration : 'none'}}
             className={`link-style ${
               pathname === "/profile" || pathname === "/editprofile"
                 ? "blue-text"
@@ -33,6 +35,7 @@ function Navbar() {
           </Link>
           <Link
             to="/pre-event"
+            style = {{textDecoration : 'none'}}
             className={`link-style ${
               pathname === "/profile" || pathname === "/editprofile"
                 ? "blue-text"
@@ -43,6 +46,7 @@ function Navbar() {
           </Link>
           <Link
             to="/profile"
+            style = {{textDecoration : 'none'}}
             className={`link-style ${
               pathname === "/profile" || pathname === "/editprofile"
                 ? "blue-text"
@@ -52,7 +56,8 @@ function Navbar() {
             Profile
           </Link>
           <Link
-            to="/register"
+            to="/login"
+            style = {{textDecoration : 'none'}}
             className={`link-style ${
               pathname === "/competition"
                 ? "active-nav-competition"

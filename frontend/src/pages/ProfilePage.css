@@ -30,7 +30,7 @@
 .buttons:hover {
   transition: all ease 0.4s;
   background-color: white;
-  border: 1px solid #143061;
+  outline: 1px solid #143061;
   color: #143061;
 }
 

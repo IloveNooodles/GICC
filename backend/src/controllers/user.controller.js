@@ -56,6 +56,15 @@ export const registerLeader = async (req, res) => {
       });
     } 
 
+    const emailResult = await generateEmailVerification(email);
+    if (!emailResult){
+      return res.status(500).send({
+        status: "ERROR",
+        errorCodes: userModelErrorCodes.EMAIL_VERIFICATION_CREATION_ERROR,
+        errorMessage: userModelErrorMessage.EMAIL_VERIFICATION_CREATION_ERROR,
+      });
+    } 
+
     // create join code
     const teamCode = await crypto.randomBytes(5).toString("hex");
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -89,15 +98,6 @@ export const registerLeader = async (req, res) => {
       });
     }
 
-    const emailResult = await generateEmailVerification(email);
-    if (!emailResult){
-      return res.status(500).send({
-        status: "ERROR",
-        errorCodes: userModelErrorCodes.EMAIL_VERIFICATION_CREATION_ERROR,
-        errorMessage: userModelErrorMessage.EMAIL_VERIFICATION_CREATION_ERROR,
-      });
-    } 
-
     res.status(200).json({ 
       message: "SUCCESS", 
       data: teamResult 
@@ -107,7 +107,7 @@ export const registerLeader = async (req, res) => {
     res.status(500).send({
       status: "ERROR",
       errorCodes: userModelErrorCodes.CREATE_USER_FAILED,
-      errorMessage: error.message,
+      errorMessage: err.message,
     });
     console.log(`account creation error: ${error.message}`);
   }

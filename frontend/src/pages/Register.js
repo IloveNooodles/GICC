@@ -1,14 +1,21 @@
 import React from "react";
-import "./registerLeader.css";
-import Navbar from "./navbar";
-import Footer from "./footer";
+import "./Register.css";
+import Navbar from "../components/navbar";
+import { FormControl, FormControlLabel, Radio, RadioGroup  } from "@material-ui/core"
 
-const registerLeader = () => {
+const Register = () => {
+
+
+  const handleChange = () => {
+
+  }
+  
+
   return (
     <div className="register-leader-container">
       <div className="register-leader-background">
         <Navbar />
-        <div className="register-leader-title">Register as Team Leader</div>
+        <div className="register-leader-title">Register</div>
       </div>
 
       <div className="register-leader-form">
@@ -62,11 +69,11 @@ const registerLeader = () => {
         <div className="register-leader-card">
           Competition Type <br></br>
           <div className="competition-container">
-            <input className="competition-input" type={"checkbox"}></input>
+            <input className="competition-input" type="radio" value="marketing"/>
             Marketing <br></br>
-            <input className="competition-input" type={"checkbox"}></input>
+            <input className="competition-input" type="radio" value="operation"/>
             Operation <br></br>
-            <input className="competition-input" type={"checkbox"}></input>
+            <input className="competition-input" type="radio" value="EHS"/>
             EHS <br></br>
           </div>
         </div>
@@ -87,11 +94,6 @@ const registerLeader = () => {
         </div>
 
         <div className="register-leader-card">
-          Team Name <br></br>
-          <input className="team-name-input" placeholder="team name"></input>
-        </div>
-
-        <div className="register-leader-card">
           Referral Code <br></br>
           <input className="referral-code-input" placeholder="XXXXXX"></input>
           <div className="referral-code-description">
@@ -107,4 +109,4 @@ const registerLeader = () => {
   );
 };
 
-export default registerLeader;
+export default Register;

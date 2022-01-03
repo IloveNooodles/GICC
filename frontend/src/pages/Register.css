@@ -1,22 +1,22 @@
-.register-member-container {
+.register-leader-container {
   background-color: #E5E5E5;
   padding-bottom: 50px;
 }
 
-.register-member-background {
-  background-image: url("./assets/background-2.png");
+.register-leader-background {
+  background-image: url("../components/assets/background-2.png");
   background-size: 100% 100%;
   height: 40%;
 }
 
-.register-member-title {
+.register-leader-title {
   font-weight: 700;
   font-size: 60px;
   color: white;
   text-align: center;
 }
 
-.register-member-form {
+.register-leader-form {
   background-color: #E5E5E5;
   padding-top: 50px;
   color: #143061;
@@ -42,13 +42,13 @@
   color: #C4C4C4;
 }
 
-.register-member-card {
+.register-leader-card {
   height: fit-content;
   padding-left: 150px;
   font-size: 18px;
 }
 
-.register-member-card-2 {
+.register-leader-card-2 {
   height: fit-content;
   display: flex;
   flex-direction: row;
@@ -75,7 +75,6 @@
 .handphone-input,
 .password-input,
 .confirm-password-input,
-.team-name-input,
 .referral-code-input {
   margin-top: 10px;
   width: 75%;
@@ -142,7 +141,6 @@
   border: none;
 }
 
-.team-code-icon,
 .referral-code-icon {
   width: 10px;
   height: 10px;
@@ -155,7 +153,6 @@
   margin-right: 5px;
 }
 
-.team-code-description,
 .referral-code-description {
   padding-top: 10px;
   width: 75%;
