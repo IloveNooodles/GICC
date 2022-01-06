@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Placeholder from "../assets/placeholder.png";
 import "./sponsor.css";
 
+import SponsorModal from "./sponsormodal";
+
 const Sponsor = () => {
   const [imageList, setImageList] = useState([]);
 
@@ -42,15 +44,17 @@ const Sponsor = () => {
       <div className="sponsor-card-container">
         <div className="sponsor-card">
           <img src={Placeholder} className="sponsor-exc-logo"></img>
-          <button className="sponsor-learn-more">Read More</button>
+          <SponsorModal />
         </div>
         <div className="sponsor-card">
           <img src={Placeholder} className="sponsor-exc-logo"></img>
-          <button className="sponsor-learn-more">Read More</button>
+          {/* <button className="sponsor-learn-more">Read More</button> */}
+          <SponsorModal />
         </div>
         <div className="sponsor-card">
           <img src={Placeholder} className="sponsor-exc-logo"></img>
-          <button className="sponsor-learn-more">Read More</button>
+          {/* <button className="sponsor-learn-more">Read More</button> */}
+          <SponsorModal />
         </div>
       </div>
       <div className="sponsor-card-container-2">
