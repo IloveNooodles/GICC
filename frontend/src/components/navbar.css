@@ -37,7 +37,7 @@ img {
 .link-style:hover {
   cursor: pointer;
   border-bottom: 3px solid yellow;
-  color: #102853;
+  /* color: #102853; */
 }
 
 .links-container {

@@ -52,6 +52,27 @@ const Sponsor = () => {
           <img src={Placeholder} className="sponsor-exc-logo"></img>
           <button className="sponsor-learn-more">Read More</button>
         </div>
+        <div className="sponsor-card">
+          <img src={Placeholder} className="sponsor-exc-logo"></img>
+          <button className="sponsor-learn-more">Read More</button>
+        </div>
+        <div className="sponsor-card">
+          <img src={Placeholder} className="sponsor-exc-logo"></img>
+          <button className="sponsor-learn-more">Read More</button>
+        </div>
+        <div className="sponsor-card">
+          <img src={Placeholder} className="sponsor-exc-logo"></img>
+          <button className="sponsor-learn-more">Read More</button>
+        </div>
+        <div className="sponsor-card">
+          <img src={Placeholder} className="sponsor-exc-logo"></img>
+          <button className="sponsor-learn-more">Read More</button>
+        </div>
+        <div className="sponsor-card">
+          <img src={Placeholder} className="sponsor-exc-logo"></img>
+          <button className="sponsor-learn-more">Read More</button>
+        </div>
+        
       </div>
       <div className="sponsor-card-container-2">
         {imageList.map((el) => {
