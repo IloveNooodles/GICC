@@ -64,7 +64,7 @@ function Navbar() {
                 : "active-nav"
             }`}
           >
-            Register/Signin
+            Log In/Register
           </Link>
         </div>
         <div class="underbar"></div>
