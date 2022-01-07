@@ -7,7 +7,7 @@ import {
   JSignInRequestBody,
   JChangePasswordRequestHeader,
   JChangePasswordRequestBody,
-} from '../controllers/user.validation.js'
+} from '../controllers/user.validation.js';
 import {
   changePassword,
   login,
