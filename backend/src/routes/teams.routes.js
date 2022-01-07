@@ -1,21 +1,14 @@
 import { Router } from "express";
 
-import { getTeamData } from "../controllers/team.controller.js";
-import { checkLogin } from "../middleware/auth.js";
-import { RequestValidation } from '../middleware/request_validation.js';
-import { 
-    JTeamDataRequestHeader,
-  } from '../controllers/team.validation.js'
+import { checkLogin } from "../middleware/auth";
+import { submissionMiddleware } from "../middleware/file";
 
 const router = Router();
 
-router.get(
-    "/data", 
-    RequestValidation({
-      header: JTeamDataRequestHeader,
-    }),
-    checkLogin, 
-    getTeamData
-); 
+router.get("/submission", checkLogin, async (req, res) => {
 
-export default router;
+})
+
+router.post("/submit", [checkLogin, submissionMiddleware], async (req, res) => {
+
+})
