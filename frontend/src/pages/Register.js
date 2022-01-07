@@ -69,11 +69,11 @@ const Register = () => {
         <div className="register-leader-card">
           Competition Type <br></br>
           <div className="competition-container">
-            <input className="competition-input" type="radio" value="marketing"/>
+            <input className="competition-input" name="comp-type" type="radio" value="marketing"/>
             Marketing <br></br>
-            <input className="competition-input" type="radio" value="operation"/>
+            <input className="competition-input" name="comp-type" type="radio" value="operation"/>
             Operation <br></br>
-            <input className="competition-input" type="radio" value="EHS"/>
+            <input className="competition-input" name="comp-type" type="radio" value="EHS"/>
             EHS <br></br>
           </div>
         </div>
