@@ -1,8 +1,8 @@
 import "./Login.css";
 import GiccImage from "../components/assets/gicc.png"
-import Linkedin from "../components/assets/jam_linkedin-circle.png";
-import Facebook from "../components/assets/jam_facebook-circle.png";
 import { Link } from "react-router-dom";
+// import Linkedin from "../components/assets/jam_linkedin-circle.png";
+// import Facebook from "../components/assets/jam_facebook-circle.png";
 
 const Login = () => {
   return (
@@ -42,11 +42,11 @@ const Login = () => {
         <div className="login-button">
           <button>Log In</button>
         </div>
-        <div className="login-connectwith">
+        {/* <div className="login-connectwith">
           <img src={Linkedin} alt="Logo Linkedin" />
           <img src={Facebook} alt="Logo Facebook" />
           <img src={Facebook} alt="Logo Facebook" />
-        </div>
+        </div> */}
         <div className="sign-up-container">
           <p>
             Don't have an account? <br />
