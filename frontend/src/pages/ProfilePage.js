@@ -6,7 +6,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
-  const [name, setName] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
 
   return (

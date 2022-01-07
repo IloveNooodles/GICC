@@ -205,3 +205,10 @@
   padding-right: 10px;
   cursor: pointer;
 }
+
+.error-popup {
+  height: fit-content;
+  width: fit-content;
+  padding-bottom: 0.5rem;
+  color: red;
+}
