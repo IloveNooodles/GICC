@@ -19,8 +19,10 @@ const ProfilePage = () => {
           <p>Upload your submission</p>
           <div className="form-container">
             <form>
+              <label htmlFor="submit-button" className="buttons">Upload Here</label>
               <input
                 type="file"
+                id="submit-button"
                 value={selectedFile}
                 className="upload-input"
                 onChange={(e) => setSelectedFile(e.target.files[0])}
