@@ -26,7 +26,7 @@ export const generateEmailVerification = async (email) => {
     to: email,
     subject: "GICC 2022 Email Verification",
     text: `Hello, thank you for registering for GICC 2022.
-Please use this link to verify your account: http://127.0.0.1:3000/user/verify-email?code=${token}`,
+Please use this link to verify your account: http://127.0.0.1:4000/user/verify-email?code=${token}`,
   };
 
   try {

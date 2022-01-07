@@ -1,65 +1,19 @@
 import { Router } from "express";
 
-import { 
-  JRegisterMemberRequestBody,
-  JRegisterLeaderRequestBody,
-  JVerifyEmailRequestQuery,
-  JSignInRequestBody,
-  JChangePasswordRequestHeader,
-  JChangePasswordRequestBody,
-} from '../controllers/user.validation.js'
-import {
-  changePassword,
-  login,
-  registerLeader,
-  registerMember,
-  verifyEmail,
-} from "../controllers/user.controller.js";
+import { changePassword, login, register, verifyEmail } from "../controllers/user.controller.js";
 import { checkLogin } from "../middleware/auth.js";
-import { RequestValidation } from '../middleware/request_validation.js';
+import { userFileMiddleware } from "../middleware/file.js";
 
 const router = Router();
 
-router.get(
-  "/verify-email",
-  RequestValidation({
-    query: JVerifyEmailRequestQuery
-  }), 
-  verifyEmail
-);
+router.get("/verify-email", verifyEmail);
 
-router.post(
-  "/signin", 
-  RequestValidation({
-    body: JSignInRequestBody
-  }),
-  login
-);
+// router.get("/profile")
 
-router.post(
-  "/change-password", 
-  RequestValidation({
-    header: JChangePasswordRequestHeader,
-    body: JChangePasswordRequestBody
-  }),
-  checkLogin, 
-  changePassword
-);
+router.post("/register", userFileMiddleware, register);
 
-router.post(
-  "/register-leader", 
-  RequestValidation({
-    body: JRegisterLeaderRequestBody
-  }),
-  registerLeader
-);
+router.post("/signin", login);
 
-router.post(
-  "/register-member", 
-  RequestValidation({
-    body: JRegisterMemberRequestBody
-  }),
-  registerMember
-);
+router.post("/change-password", checkLogin, changePassword);
 
 export default router;

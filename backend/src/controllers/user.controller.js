@@ -4,17 +4,33 @@ import jwt from "jsonwebtoken";
 import crypto from "crypto";
 
 import prisma from "../providers/prisma.js";
+import fs from "fs/promises";
 import { generateEmailVerification } from "../utils/email-verification.js";
-import { createDirectory } from "../utils/create-dir.js";
 import { userModelErrorCodes, userModelErrorMessage } from "../prisma/usererrors.js";
+import { driveService } from "../providers/google_api.js";
+import { createDriveFile, createDriveFolder } from "../utils/create-drive.js";
+import slugify from "slugify";
 
 dotenv.config();
 const saltRounds = 10;
 const JWT_SECRET = process.env.jwt;
+const parentId = process.env.PARENT_ID;
 
-/* Register as team leader */
-export const registerLeader = async (req, res) => {
-  const { fullName, email, password, institution, faculty, teamName, referralCode, birthDate } = req.body;
+export const register = async (req, res) => {
+  const { form } = req.body;
+  const { twibbon, student_id, payment } = req.files;
+
+  const parsedForm = JSON.parse(form);
+  const {
+    email,
+    password,
+    fullName,
+    institution,
+    faculty,
+    competitionType,
+    phoneNumber,
+    referralCode,
+  } = parsedForm;
 
   try {
     // check for existing users
@@ -27,70 +43,53 @@ export const registerLeader = async (req, res) => {
       });
     }
 
-    // check for team name
-    const team = await prisma.team.findUnique({ where: { name: teamName } });
-    if (team) {
-      return res.status(400).send({
-        status: "ERROR",
-        errorCodes: userModelErrorCodes.TEAM_NAME_ALREADY_TAKEN,
-        errorMessage: userModelErrorMessage.TEAM_NAME_ALREADY_TAKEN,
-      });
-    }
-
-    // generating directory for team and member
-    const pathTeam = await createDirectory("team", teamName);
-    if (!pathTeam){
-      return res.status(500).send({
-        status: "ERROR",
-        errorCodes: userModelErrorCodes.TEAM_DIRECTORY_CREATION_ERROR,
-        errorMessage: userModelErrorMessage.TEAM_DIRECTORY_CREATION_ERROR,
-      });
-    } 
-
-    const pathUser = await createDirectory("user", fullName);
-    if (!pathUser){
-      return res.status(500).send({
-        status: "ERROR",
-        errorCodes: userModelErrorCodes.USER_DIRECTORY_CREATION_ERROR,
-        errorMessage: userModelErrorMessage.USER_DIRECTORY_CREATION_ERROR,
-      });
-    } 
-
     const emailResult = await generateEmailVerification(email);
-    if (!emailResult){
+    if (!emailResult) {
       return res.status(500).send({
         status: "ERROR",
         errorCodes: userModelErrorCodes.EMAIL_VERIFICATION_CREATION_ERROR,
         errorMessage: userModelErrorMessage.EMAIL_VERIFICATION_CREATION_ERROR,
       });
-    } 
+    }
 
-    // create join code
-    const teamCode = await crypto.randomBytes(5).toString("hex");
+    // CREATE GOOGLE DRIVE FOLDER AND USER FILES
+    const unique = crypto.randomBytes(4).toString("hex");
+    const folderName = slugify(fullName) + "_" + unique;
+    const driveFolder = await createDriveFolder(driveService, parentId, folderName);
+    if (!driveFolder)
+      return res.status(500).send({
+        status: "ERROR",
+        errorCodes: "FOLDER_CREATION_ERROR",
+      });
+    const twibbonResult = await createDriveFile(driveService, driveFolder.data.id, twibbon[0]);
+    const studentIdResult = await createDriveFile(driveService, driveFolder.data.id, student_id[0]);
+    const paymentResult = await createDriveFile(driveService, driveFolder.data.id, payment[0]);
+    if (!twibbonResult || !studentIdResult || !paymentResult) {
+      return res.status(500).send({
+        status: "ERROR",
+        errorCodes: "FILE_CREATION_ERROR",
+      });
+    }
+
+    // create user
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const teamResult = await prisma.team.create({
+    const userResult = await prisma.user.create({
       data: {
-        name: teamName,
-        code: teamCode,
-        noOfMember: 1,
-        submissionPath: pathTeam,
-        member: {
-          create: {
-            fullName: fullName,
-            email: email,
-            password: hashedPassword,
-            institution: institution,
-            faculty: faculty,
-            isTeamLeader: true,
-            referralCode: referralCode || "",
-            birthDate: birthDate,
-            filePath: pathUser,
-          },
-        },
+        email: email,
+        password: hashedPassword,
+        fullName: fullName,
+        institution: institution,
+        faculty: faculty,
+        phoneNumber: phoneNumber,
+        isEmailVerified: false,
+        isFileVerified: false,
+        referralCode: referralCode,
+        competitionType: competitionType,
+        filePath: driveFolder.data.id,
       },
     });
 
-    if (!teamResult){
+    if (!userResult) {
       return res.status(500).send({
         status: "ERROR",
         errorCodes: userModelErrorCodes.ACCOUNT_CREATION_ERROR,
@@ -98,113 +97,22 @@ export const registerLeader = async (req, res) => {
       });
     }
 
-    res.status(200).json({ 
-      message: "SUCCESS", 
-      data: teamResult 
-    });
+    // FILE CLEANUP
+    const twibbonDelete = await fs.unlink(twibbon[0].path);
+    const paymentDelete = await fs.unlink(payment[0].path);
+    const studentIdDelete = await fs.unlink(student_id[0].path);
 
+    return res.status(200).json({
+      message: "SUCCESS",
+      data: userResult,
+    });
   } catch (err) {
     res.status(500).send({
       status: "ERROR",
       errorCodes: userModelErrorCodes.CREATE_USER_FAILED,
       errorMessage: err.message,
     });
-    console.log(`account creation error: ${error.message}`);
-  }
-};
-
-export const registerMember = async (req, res) => {
-  const { fullName, email, password, institution, faculty, teamCode, birthDate } = req.body;
-  const memberLimit = 3;
-
-  try {
-    // check for existing users
-    const user = await prisma.user.findUnique({ where: { email: email } });
-    if (user) {
-      return res.status(403).send({
-        status: "ERROR",
-        errorCodes: userModelErrorCodes.EMAIL_ALREADY_EXIST,
-        errorMessage: userModelErrorMessage.EMAIL_ALREADY_EXIST,
-      });
-    }
-
-    const teamResult = await prisma.team.findFirst({ where: { code: teamCode } });
-    if (!teamResult){
-      return res.status(403).send({
-        status: "ERROR",
-        errorCodes: userModelErrorCodes.INVALID_TEAM_CODE,
-        errorMessage: userModelErrorMessage.INVALID_TEAM_CODE,
-      });
-    } 
-
-    // check if the number of the member has reached the limit
-    if (teamResult.noOfMember === memberLimit){
-      return res.status(400).send({
-        status: "ERROR",
-        errorCodes: userModelErrorCodes.TEAM_ALREADY_FULL,
-        errorMessage: userModelErrorMessage.TEAM_ALREADY_FULL,
-      });
-    }
-
-    // hashing password
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-
-    // generating directory for member
-    const pathUser = await createDirectory("user", fullName);
-    if (!pathUser){
-      return res.status(500).send({
-        status: "ERROR",
-        errorCodes: userModelErrorCodes.USER_DIRECTORY_CREATION_ERROR,
-        errorMessage: userModelErrorMessage.USER_DIRECTORY_CREATION_ERROR,
-      });
-    } 
-
-    const result = await prisma.team.update({
-      where: {
-        id: teamResult.id,
-      },
-      data: {
-        noOfMember: teamResult.noOfMember + 1,
-        member: {
-          create: {
-            fullName: fullName,
-            email: email,
-            password: hashedPassword,
-            institution: institution,
-            faculty: faculty,
-            isTeamLeader: false,
-            birthDate: birthDate,
-            filePath: pathUser,
-          },
-        },
-      },
-    });
-    if (!result){
-      return res.status(500).send({
-        status: "ERROR",
-        errorCodes: userModelErrorCodes.ACCOUNT_CREATION_ERROR,
-        errorMessage: userModelErrorMessage.ACCOUNT_CREATION_ERROR,
-      });
-    } 
-
-    // generate email verification
-    const emailResult = await generateEmailVerification(email);
-    if (!emailResult){
-      return res.status(500).send({
-        status: "ERROR",
-        errorCodes: userModelErrorCodes.EMAIL_VERIFICATION_CREATION_ERROR,
-        errorMessage: userModelErrorMessage.EMAIL_VERIFICATION_CREATION_ERROR,
-      });
-    }
-
-    res.json({ status: "SUCCESS" });
-  } catch (error) {
-    res.status(500).send({
-      status: "ERROR",
-      errorCodes: userModelErrorCodes.CREATE_USER_FAILED,
-      errorMessage: error.message,
-    });
-    console.log(`account cration error: ${error.message}`);
+    console.log(`account creation error: ${err.message}`);
   }
 };
 
@@ -213,7 +121,6 @@ export const login = async (req, res) => {
   try {
     const result = await prisma.user.findUnique({
       where: { email: email },
-      include: { team: true },
     });
 
     if (!result) {
@@ -249,7 +156,6 @@ export const login = async (req, res) => {
       {
         email: result.email,
         fullName: result.fullName,
-        team: result.team.name,
       },
       JWT_SECRET,
       {
@@ -335,7 +241,7 @@ export const changePassword = async (req, res) => {
   try {
     const { email } = jwt.decode(req.header("Bearer"));
     const result = await prisma.user.findUnique({ where: { email: email } });
-    if (!result){
+    if (!result) {
       return res.status(400).send({
         status: "ERROR",
         errorCodes: userModelErrorCodes.USER_NOT_FOUND,
@@ -344,7 +250,7 @@ export const changePassword = async (req, res) => {
     }
 
     const passwordMatch = await bcrypt.compare(oldPassword, result.password);
-    if (!passwordMatch){
+    if (!passwordMatch) {
       return res.status(400).send({
         status: "ERROR",
         errorCodes: userModelErrorCodes.WRONG_PASSWORD,
