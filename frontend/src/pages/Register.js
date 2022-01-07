@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Register.css";
 import Navbar from "../components/navbar";
 import axios from "axios";
@@ -22,7 +22,7 @@ const Register = () => {
   const URL = "https://salty-temple-74931.herokuapp.com/";
 
   const checkPassword = (tempPass) => {
-    if (tempPass != pass) {
+    if (tempPass !== pass) {
       setPasswordEqual(false);
     } else {
       setPasswordEqual(true);
@@ -33,13 +33,14 @@ const Register = () => {
     setTextForm({ ...textForm, [e.target.name]: e.target.value });
   };
 
-  const SubmitRegister = () => {
+  const SubmitRegister = (e) => {
+    e.preventDefault()
     var bodyFormData = new FormData();
     bodyFormData.append("twibbon", twibbon);
     bodyFormData.append("student_id", studentId);
     bodyFormData.append("payment", payment);
-    bodyFormData.append("form", textForm);
-    console.log(bodyFormData);
+    bodyFormData.append("form", JSON.stringify(textForm));
+    console.log(textForm);
 
     axios({
       method: "post",
@@ -49,7 +50,7 @@ const Register = () => {
     })
       .then(function (response) {
         // buat cek udah registrasi bener
-        console.log(response);
+        console.log(response.data);
       })
       .catch(function (error) {
         // buat cek udah registrasi salah
@@ -177,7 +178,7 @@ const Register = () => {
               className="competition-input"
               name="competitionType"
               type="radio"
-              value="marketing"
+              value="MARKETING"
               required
               onChange={(e) => {
                 handleChange(e);
@@ -188,7 +189,7 @@ const Register = () => {
               className="competition-input"
               name="competitionType"
               type="radio"
-              value="operation"
+              value="OPERATION"
               required
               onChange={(e) => {
                 handleChange(e);
@@ -217,7 +218,7 @@ const Register = () => {
             name="student_id"
             required
             onChange={(e) => {
-              setStudentId(e.target.value);
+              setStudentId(e.target.files[0]);
             }}
           />
         </div>
@@ -230,7 +231,7 @@ const Register = () => {
             name="twibbon"
             required
             onChange={(e) => {
-              setTwibbon(e.target.value);
+              setTwibbon(e.target.files[0]);
             }}
           />
         </div>
@@ -243,7 +244,7 @@ const Register = () => {
             name="payment"
             required
             onChange={(e) => {
-              setPayment(e.target.value);
+              setPayment(e.target.files[0]);
             }}
           />
         </div>
