@@ -27,14 +27,11 @@ const Login = () => {
       console.log(res);
       if(res.data.status == "SUCCESS"){
         setStatus("success");
-        console.log("berhasil login");
       } else {
         setStatus("failed");
-        console.log("gagal login");
       }
     }).catch(function(err){
       setStatus("failed");
-      console.log("gagal login");
       console.log(err)
     })
   }
@@ -82,7 +79,9 @@ const Login = () => {
           // ini tinggal redirect
           <div className="error-popup">berhasil</div>
         ) : (
-          <div className="error-popup">Login gagal Username/password salah</div>
+          status === "failed" ? (
+            <div className="error-popup">Login gagal Username/password salah</div>
+          ) : null
         )}
         <div className="login-button">
           <button onClick={LoginUser}>Log In</button>
