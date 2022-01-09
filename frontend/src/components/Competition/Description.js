@@ -4,18 +4,15 @@ const Description = () => {
     return(
         <div class="description">
             <div class="descriptionBase">
-                <div class="descriptionTitle">how do we embed the <br/> GICC guide?</div>
+                <div class="descriptionTitle">GICC 2022 <br/> Event Guidebook</div>
             </div>
             <div class="descriptionReal">
                 <div class="descdesc">
-                    Ganesha Integration Case Competition 2022 is a simulation for undergraduate students about the real “how working in Industry” that deploys in the form of competition. This program encourages students to innovate and solve real industrial problems that really exist from our Company Case Contributor and innovate an advancement that improves the key sectors of companies which are marketing, operation, and EHS (Environment, Health, and Safety).
-                </div>
-                <div class="descdesc">
-                    Ganesha Integration Case Competition 2022 is a simulation for undergraduate students about the real “how working in Industry” that deploys in the form of competition. This program encourages students to innovate and solve real industrial problems that really exist from our Company Ca
+                For further information about GICC 2022 competition,  you can download GICC 2022 Guidebook below
                 </div>
             </div>
             <div className="guide-button-container">
-              <button className="guide-button">
+              <button className="guide-button" onclick="location.href = 'https://www.google.co.id'" type="button">
                 Download Guide Book
               </button>
             </div>

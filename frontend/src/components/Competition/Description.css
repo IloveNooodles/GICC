@@ -18,7 +18,7 @@
     width: fit-content;
     padding: 0 auto;
     text-align: center;
-    font-size: 90px;
+    font-size: 60px;
     font-weight: bold;
     background: linear-gradient(267.68deg, #FFDC80 24.87%, #97FCFA 58.28%);
     background-clip: text;
@@ -39,7 +39,7 @@
 }
 
 .descdesc {
-    width: 30%;
+    width: 60%;
     margin-left: 20px;
     margin-right: 20px;
 }

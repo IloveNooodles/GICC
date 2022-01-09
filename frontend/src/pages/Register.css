@@ -57,6 +57,14 @@
   font-size: 18px;
 }
 
+.req-register-text{
+  padding: 50px 100px 50px 100px;
+  margin-left: 20%;
+  margin-bottom: 50px;
+  width: 50%;
+  height: 45%;
+}
+
 
 .institution-container,
 .major-container {

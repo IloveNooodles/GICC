@@ -34,7 +34,7 @@ const Register = () => {
   };
 
   const SubmitRegister = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     var bodyFormData = new FormData();
     bodyFormData.append("twibbon", twibbon);
     bodyFormData.append("student_id", studentId);
@@ -63,6 +63,33 @@ const Register = () => {
       <div className="register-leader-background">
         <Navbar />
         <div className="register-leader-title">Register</div>
+      </div>
+
+      <div className="req-register-text">
+        <b>What you need to do before continuing the registration process:</b>{" "}
+        <br />
+        &emsp;1. Complete the payment of the entry fee before registering and
+        provide the payment receipt. <br />
+        &emsp;2. Upload GICC 2021’s participation twibbon on A public Instagram
+        feed and tag our IG @ganesha.icc. Instagram twibbon and caption can be
+        accessed in <a href="https://bit.ly/GICC2022Registration">here</a>{" "}
+        <br />
+        <br />
+        <b>Payment</b>
+        <br />
+        &emsp;- Early Bird Registration <br />
+        &emsp;&emsp;Date: 13 January - 19 January 2022 <br />
+        &emsp;&emsp;Entry Fee : Rp 35.000 <br />
+        &emsp;- Regular Registration <br />
+        &emsp;&emsp;Date: 20 January - 25 January 2022 <br />
+        &emsp;&emsp;Entry Fee : Rp 45.000 <br />
+        <br />
+        Entry fee payment is transferred to the following account:
+        <br />
+        Bank XXX 123456789 on behalf of XXXXXXX.  <br/>
+        Please add the number 01 if you register in the marketing sector, 02 for operations, and 03 for EHS behind your nominal registration fee.
+        For example: Rp40.001,00 (Marketing Sector)
+
       </div>
 
       <form className="register-leader-form">

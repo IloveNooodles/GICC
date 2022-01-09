@@ -15,7 +15,7 @@ const ProfilePage = () => {
       </div>
       <div className="profile-container">
         <div className="left-profile-container">
-          <p>Upload your submission</p>
+          <p>Upload Preliminary Submission</p>
           <div className="form-container">
             <form>
               <label htmlFor="submit-button" className="buttons">Upload Here</label>
@@ -28,6 +28,13 @@ const ProfilePage = () => {
               />
             </form>
           </div>
+          <br/>
+          <p style={{fontWeight : 300, fontSize : 20}}>
+            <b>Announcement</b><br/>
+            Technical Meeting 
+            <br/>30 January 2022<br/>
+            Details : Coming soon
+          </p>
         </div>
         <div className="right-profile-container">
           <h1>Profile</h1>

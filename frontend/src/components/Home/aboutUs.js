@@ -1,6 +1,7 @@
 import "./aboutUs.css";
 import Circle from "../assets/Rectangle2.svg";
 import Circle2 from "../assets/Rectangle.svg";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
@@ -28,18 +29,29 @@ const AboutUs = () => {
         </div>
         <div className="container-text">
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate
-            ducimus sapiente quas deserunt doloribus sint? Nostrum incidunt,
-            quo, nisi enim impedit perspiciatis exercitationem distinctio id
-            quia, suscipit asperiores vitae libero.
+            Ganesha Integration Case Competition 2022 is a unique simulation for
+            undergraduate students about the real “How Working in Industry''
+            that unfolds in the form of competition. The competition is about
+            encouraging students to innovate and solve real industrial problems
+            that exist from our Company Case Contributor
           </p>
 
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate
-            ducimus sapiente quas deserunt doloribus sint? Nostrum incidunt,
-            quo, nisi enim impedit perspiciatis exercitationem distinctio id
-            quia, suscipit asperiores vitae libero. <br />
-            <br /> <a href="#">see more &gt; </a>
+            and innovate an advancement that improves the key sectors of
+            companies which are marketing, operation, and EHS (Environment,
+            Health, and Safety). The Event would also make participants
+            cooperate with people they have never met before, and push them to
+            collaborate with colleagues from different backgrounds. <br />
+            <br />{" "}
+            <a>
+              {" "}
+              <Link
+                to="/competition"
+                style={{ textDecoration: "none" }}
+              >
+                see more
+              </Link>
+            </a>
           </p>
         </div>
       </div>
