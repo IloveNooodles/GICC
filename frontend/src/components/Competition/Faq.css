@@ -4,14 +4,14 @@
 }
 
 .Accordion {
-  padding-left: 15%;
-  width: 80%;
+  padding-left: 22.5%;
+  width: 60%;
   margin-bottom: 50px;
 }
 
 .Faq-title {
   padding-left: 40px;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 600;
   color: rgba(20, 48, 97, 1);
   width: 100%;
@@ -21,7 +21,7 @@
 }
 
 .Accordion-button {
-  font-size: 20px;
+  font-size: 15px;
   padding: 20px;
   border: rgba(20, 48, 97, 1);
   border-radius: 20px;
@@ -30,7 +30,7 @@
 }
 
 .Accordion-after {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-left: 10px;
 }
 

@@ -67,17 +67,21 @@ const ProfilePage = () => {
               <p>ID Line</p>
               <span>ID Line</span>
             </div>
+            <div className="items-text-profile">
+              <p>Team Name</p>
+              <span>-</span>
+            </div>
           </div>
           <div className="right-buttons">
             <div className="right-buttons-horizontal">
-              <Link to="/editprofile">
+              {/* <Link to="/editprofile">
                 <button className="buttons light-blue-button">
                   Edit Profile
                 </button>
               </Link>
               <button className="buttons light-blue-button">
                 Change Password
-              </button>
+              </button> */}
             </div>
             <Link to="/">
               <button className="buttons white-text">Log Out</button>

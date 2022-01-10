@@ -44,17 +44,15 @@ const Sponsor = () => {
       <div className="sponsor-card-container">
         <div className="sponsor-card">
           <img src={Placeholder} className="sponsor-exc-logo"></img>
-          <SponsorModal />
+          <button className="sponsor-learn-more">Read More</button>
         </div>
         <div className="sponsor-card">
           <img src={Placeholder} className="sponsor-exc-logo"></img>
-          {/* <button className="sponsor-learn-more">Read More</button> */}
-          <SponsorModal />
+          <button className="sponsor-learn-more">Read More</button>
         </div>
         <div className="sponsor-card">
           <img src={Placeholder} className="sponsor-exc-logo"></img>
-          {/* <button className="sponsor-learn-more">Read More</button> */}
-          <SponsorModal />
+          <button className="sponsor-learn-more">Read More</button>
         </div>
         <div className="sponsor-card">
           <img src={Placeholder} className="sponsor-exc-logo"></img>

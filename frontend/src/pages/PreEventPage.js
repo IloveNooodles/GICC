@@ -13,26 +13,26 @@ const PreEventPage = () => {
     const list = [
       {
         url: PlaceholderImage,
+        redirect : "https://docs.google.com/forms/d/1CZDnlO3oezsnAmbVRJcCxqS2EPpVehcVHKVFUCCXdiU/edit",
         title: "GICClass 1",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit. Ut enim ad minim veniam.",
+          "Revealing the Secrets of Winning Business Competitions : Think Critically and Creatively for a Better Branding GICClass is an online workshop made for aspiring learners who are eager to ace in the professional world. This episode of GICClass will mainly talk about how students can utilize their ability to think critically and creatively in creating the best branding especially for business competitions and later on it can also be used in their aspiring careers.",
       },
       {
         url: PlaceholderImage,
-        title: "GICClass 2",
+        redirect : "https://docs.google.com/forms/d/1CZDnlO3oezsnAmbVRJcCxqS2EPpVehcVHKVFUCCXdiU/edit",
+        title: "GICClass 2 - To be Announced",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit. Ut enim ad minim veniam.",
-      },
-      {
-        url: PlaceholderImage,
-        title: "GICClass 3",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit. Ut enim ad minim veniam.",
+          "GICClass is an online workshop that will value hands-on experience by  learning new skills via an online platform. Here participants will be guided by speakers to learn new skills such as problem-solving and data analytics.",
       },
     ];
 
     setListClass(list);
   });
+
+  document.getElementsByClassName("pre-event-card").onclick = function () {
+    window.location.href = "www.youtube.com";
+  };
 
   return (
     <div className="pre-event-container">
@@ -42,15 +42,15 @@ const PreEventPage = () => {
       <div className="pre-event-card-container">
         {listClass.map((element) => {
           return (
-            <Link to="/" className="pre-event-card">
-              <img src={element.url} className="pre-event-card-image" />
-              <div className="pre-event-card-text">
-                <div className="pre-event-card-title">{element.title}</div>
-                <div className="pre-event-card-description">
-                  {element.description}
+            <a href={element.redirect} target="_blank" className="pre-event-card">
+                <img src={element.url} className="pre-event-card-image" />
+                <div className="pre-event-card-text">
+                  <div className="pre-event-card-title">{element.title}</div>
+                  <div className="pre-event-card-description">
+                    {element.description}
+                  </div>
                 </div>
-              </div>
-            </Link>
+            </a>
           );
         })}
       </div>
