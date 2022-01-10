@@ -6,6 +6,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 const Register = () => {
+  const [passValid, setPassValid] = useState(false);
   const [studentId, setStudentId] = useState();
   const [twibbon, setTwibbon] = useState();
   const [payment, setPayment] = useState();
@@ -42,11 +43,23 @@ const Register = () => {
     }
   };
 
+  const passwordValidation = () => {
+    if(pass.length === 0) return null;
+    if(pass.length < 8) return "Too Short";
+    if(pass.toLowerCase() === pass || pass.toUpperCase() === pass) return "Please use combination of lower and upper case letters";
+    setPassValid(true);
+    return null;
+  }
+
   const handleChange = (e) => {
     setTextForm({ ...textForm, [e.target.name]: e.target.value });
   };
-
+  const ISubmitRegister = () => {
+    if(!passValid) return "pass not good";
+    return "ahay";
+  }
   const SubmitRegister = (e) => {
+    if(!passValid) return;
     e.preventDefault();
     var bodyFormData = new FormData();
     bodyFormData.append("twibbon", twibbon);
@@ -204,6 +217,7 @@ const Register = () => {
                 }}
                 required
               ></input>
+              <p>{passwordValidation()}</p>
             </div>
 
             <div className="register-leader-card">
@@ -331,6 +345,7 @@ const Register = () => {
             >
               Register
             </button>
+            <p>{ISubmitRegister()}</p>
           </Form>
         )}
       </Formik>
