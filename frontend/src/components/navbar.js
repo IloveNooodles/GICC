@@ -4,9 +4,17 @@ import logoKM from "./assets/km.png";
 import logoKabinet from "./assets/kabinet.png";
 import "./navbar.css";
 import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 
 function Navbar() {
   const { pathname } = useLocation();
+  const [token, setToken] = useState()
+
+  useEffect(() => {
+    setToken(localStorage.getItem("Token"))
+  },[token]);
+
   return (
     <div className="navbar">
       <div className="right-section">
@@ -44,6 +52,7 @@ function Navbar() {
           >
             Pre-Event
           </Link>
+          {token ? 
           <Link
             to="/profile"
             style = {{textDecoration : 'none'}}
@@ -54,7 +63,7 @@ function Navbar() {
             }`}
           >
             Profile
-          </Link>
+          </Link> : 
           <Link
             to="/login"
             style = {{textDecoration : 'none'}}
@@ -65,7 +74,7 @@ function Navbar() {
             }`}
           >
             Log In/Register
-          </Link>
+          </Link>}
         </div>
         <div class="underbar"></div>
       </div>

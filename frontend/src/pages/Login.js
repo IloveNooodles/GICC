@@ -1,40 +1,49 @@
 import "./Login.css";
-import GiccImage from "../components/assets/gicc.png"
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import GiccImage from "../components/assets/gicc.png";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import Linkedin from "../components/assets/jam_linkedin-circle.png";
-import Facebook from "../components/assets/jam_facebook-circle.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pswd, setPswd] = useState("");
   const [status, setStatus] = useState("null");
   const URL = "https://salty-temple-74931.herokuapp.com/";
+  const history = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("Token");
+    if (token) {
+      history("/");
+    }
+  }, []);
 
   const LoginUser = () => {
     const loginData = {
       email: email,
-      password: pswd
-    }
-    console.log(loginData)
+      password: pswd,
+    };
+    console.log(loginData);
 
     axios({
       method: "post",
       url: URL + "user/signin",
       data: loginData,
-    }).then(function(res){
-      console.log(res);
-      if(res.data.status == "SUCCESS"){
-        setStatus("success");
-      } else {
-        setStatus("failed");
-      }
-    }).catch(function(err){
-      setStatus("failed");
-      console.log(err)
     })
-  }
+      .then(function (res) {
+        console.log(res);
+        if (res.data.status === "SUCCESS") {
+          setStatus("success");
+          localStorage.setItem("Token", res.data.token);
+          history("/");
+        } else {
+          setStatus("failed");
+        }
+      })
+      .catch(function (err) {
+        setStatus("failed");
+        console.log(err);
+      });
+  };
 
   return (
     <div className="login-container">
@@ -78,19 +87,17 @@ const Login = () => {
         {status === "success" ? (
           // ini tinggal redirect
           <div className="error-popup">berhasil</div>
-        ) : (
-          status === "failed" ? (
-            <div className="error-popup">Login gagal Username/password salah</div>
-          ) : null
-        )}
+        ) : status === "failed" ? (
+          <div className="error-popup">Login gagal Username/password salah</div>
+        ) : null}
         <div className="login-button">
           <button onClick={LoginUser}>Log In</button>
         </div>
-        <div className="login-connectwith">
+        {/* <div className="login-connectwith">
           <img src={Linkedin} alt="Logo Linkedin" />
           <img src={Facebook} alt="Logo Facebook" />
           <img src={Facebook} alt="Logo Facebook" />
-        </div>
+        </div> */}
         <div className="sign-up-container">
           <p>
             Don't have an account? <br />

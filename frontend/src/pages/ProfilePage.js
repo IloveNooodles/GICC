@@ -1,12 +1,23 @@
 import "./ProfilePage.css";
 
 import Navbar from "../components/navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("Token");
+    if (!token) {
+      navigate("/register");
+    }
+  });
+
+  const handleLogout = () => {
+    localStorage.removeItem("Token");
+  };
 
   return (
     <div className="profile-root">
@@ -17,8 +28,10 @@ const ProfilePage = () => {
         <div className="left-profile-container">
           <p>Upload Preliminary Submission</p>
           <div className="form-container">
-            <form>
-              <label htmlFor="submit-button" className="buttons">Upload Here</label>
+            <form method="POST">
+              <label htmlFor="submit-button" className="buttons">
+                Upload Here
+              </label>
               <input
                 type="file"
                 id="submit-button"
@@ -28,11 +41,14 @@ const ProfilePage = () => {
               />
             </form>
           </div>
-          <br/>
-          <p style={{fontWeight : 300, fontSize : 20}}>
-            <b>Announcement</b><br/>
-            Technical Meeting 
-            <br/>30 January 2022<br/>
+          <br />
+          <p style={{ fontWeight: 300, fontSize: 20 }}>
+            <b>Announcement</b>
+            <br />
+            Technical Meeting
+            <br />
+            30 January 2022
+            <br />
             Details : Coming soon
           </p>
         </div>
@@ -73,18 +89,11 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="right-buttons">
-            <div className="right-buttons-horizontal">
-              {/* <Link to="/editprofile">
-                <button className="buttons light-blue-button">
-                  Edit Profile
-                </button>
-              </Link>
-              <button className="buttons light-blue-button">
-                Change Password
-              </button> */}
-            </div>
+            <div className="right-buttons-horizontal"></div>
             <Link to="/">
-              <button className="buttons white-text">Log Out</button>
+              <button onClick={handleLogout} className="buttons white-text">
+                Log Out
+              </button>
             </Link>
           </div>
         </div>
