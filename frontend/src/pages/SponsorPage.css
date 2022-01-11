@@ -1,0 +1,47 @@
+.sponsor-page-body {
+  display: flex;
+  padding: 100px 0;
+  height: fit-content;
+  justify-content: center;
+  font-family: poppins;
+}
+
+.left-rectangle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: -2%;
+}
+
+.right-rectangle {
+  position: absolute;
+  right: 0;
+  padding: 0;
+  width: 290px;
+  height: 330px;
+}
+
+.sponsor-page-text {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  padding-left: 5rem;
+  color: white;
+  font-weight: 300;
+}
+
+.sponsor-page-text p {
+  text-align: left;
+  padding-bottom: 2rem;
+}
+
+.sponsor-page-text a {
+  margin: 0;
+  color: #ffc727;
+  text-decoration: none;
+}
+
+.sponsor-page-text a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

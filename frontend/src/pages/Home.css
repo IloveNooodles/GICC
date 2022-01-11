@@ -16,6 +16,18 @@
   height: fit-content;
 }
 
+.timeline {
+  background-color: #26A198;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
+#timeline {
+  width: 70%;
+  height: auto;
+}
+
 .sponsor {
   background-color: #34D9C3;
   height: fit-content;

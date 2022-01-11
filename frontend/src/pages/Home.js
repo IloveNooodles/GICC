@@ -6,6 +6,10 @@ import Sponsor from "../components/Home/sponsor"
 import AOS from "aos";
 import "./Home.css"
 
+//image
+import Timeline from "../components/assets/timeline.png"
+
+
 AOS.init();
 
 const Home = () => {
@@ -20,9 +24,12 @@ const Home = () => {
       <div className="competition">
         <Competition />
       </div>
-      {/* <div className="sponsor">
+      <div className="timeline">
+        <img src = {Timeline} id = "timeline"></img>
+      </div>
+      <div className="sponsor">
         <Sponsor />  
-      </div> */}
+      </div>
       <div className="footer">
         <Footer />
       </div>

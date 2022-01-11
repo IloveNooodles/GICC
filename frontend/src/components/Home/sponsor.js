@@ -1,42 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Placeholder from "../assets/placeholder.png";
+import Rectangle1 from "../assets/Rectangle1.png"
+import Rectangle2 from "../assets/Rectangle2.png"
 import "./sponsor.css";
 
-import SponsorModal from "./sponsormodal";
-
 const Sponsor = () => {
-  const [imageList, setImageList] = useState([]);
+  // const [sponsorList, setSponsorList] = useState([]);
+  // const [showSponsor, setShowSponsor] = useState(false);
 
-  useEffect(() => {
-    const l = [
-      {
-        url: Placeholder,
-      },
-      {
-        url: Placeholder,
-      },
-      {
-        url: Placeholder,
-      },
-      {
-        url: Placeholder,
-      },
-      {
-        url: Placeholder,
-      },
-      {
-        url: Placeholder,
-      },
-      {
-        url: Placeholder,
-      },
-      {
-        url: Placeholder,
-      },
-    ];
+  // useEffect(() => {
+  //   const l = {url: Placeholder, text: "HAHAHA"}
+  //   setSponsorList(l);
+  // });
 
-    setImageList(l);
-  });
+  // const sponsorShow = (imageUrl, text) => {
+  //   const l2 = {url: imageUrl, text: text}
+  //   setSponsorList(l2);
+  //   setShowSponsor(true);
+  // }
 
   return (
     <div className="sponsor-container">
@@ -44,7 +25,7 @@ const Sponsor = () => {
       <div className="sponsor-card-container">
         <div className="sponsor-card">
           <img src={Placeholder} className="sponsor-exc-logo"></img>
-          <button className="sponsor-learn-more">Read More</button>
+            <button className="sponsor-learn-more">Read More</button>
         </div>
         <div className="sponsor-card">
           <img src={Placeholder} className="sponsor-exc-logo"></img>
@@ -76,15 +57,20 @@ const Sponsor = () => {
         </div>
         
       </div>
-      <div className="sponsor-card-container-2">
-        {imageList.map((el) => {
-          return (
-            <div className="sponsor-card-2">
-              <img src={el.url}></img>
-            </div>
-          );
-        })}
+
+      
+      <div className="sponsor-page-body">
+        <div className="sponsor-page-title-aboutus">
+          <h1 data-aos="fade-right">
+            <img className="sponsor-logo-detailed" src={Placeholder} />
+          </h1>
+        </div>
+        <div className="sponsor-page-text">
+          FJDKASLFJDSKALFJDSA
+        </div>
       </div>
+     
+      
     </div>
   );
 };

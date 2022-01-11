@@ -7,6 +7,10 @@ import * as Yup from "yup";
 
 const Register = () => {
   const [passValid, setPassValid] = useState(false);
+  const [emailValid, setEmailValid] = useState(false);
+  const [phoneValid, setPhoneValid] = useState(false);
+  const [email,setEmail] = useState("")
+  const [phone, setPhone] = useState("")
   const [studentId, setStudentId] = useState();
   const [twibbon, setTwibbon] = useState();
   const [payment, setPayment] = useState();
@@ -51,12 +55,42 @@ const Register = () => {
     return null;
   }
 
+  const emailValidation = () => {
+    if (email.length === 0) return null;
+    if (!String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      ))
+      {
+        return "Wrong Email Format";
+      }
+    setEmailValid(true);
+    return null;
+  };
+
+  const phoneValidation = () => {
+    if (email.length === 0) return null;
+    if (!String(email)
+    .toLowerCase()
+    .match(
+      /^\d{10}$/
+    ))
+    {
+      return "Wrong Phone Number Format";
+    }
+    setPhoneValid(true);
+    return null;
+  }
+
   const handleChange = (e) => {
     setTextForm({ ...textForm, [e.target.name]: e.target.value });
   };
   const ISubmitRegister = () => {
-    if(!passValid) return "pass not good";
-    return "ahay";
+    if(!passValid) return "Wrong Password Configuration!";
+    if(!emailValid) return "Wrong Email Format!"
+    if(!phoneValid) return "Wrong Phone Number Format!"
+    return null;
   }
   const SubmitRegister = (e) => {
     if(!passValid) return;
@@ -146,9 +180,10 @@ const Register = () => {
                 value={textForm.email}
                 onChange={(e) => {
                   handleChange(e);
+                  setEmail(e.target.value);
                 }}
               />
-              {errors.email && touched.email ? <div>{errors.email}</div> : null}
+              <p className="referral-code-description">{emailValidation()}</p>
             </div>
 
             <div className="register-leader-card">
@@ -173,8 +208,10 @@ const Register = () => {
                 required
                 onChange={(e) => {
                   handleChange(e);
+                  setPhone(e.target.value);
                 }}
               ></input>
+              <p className="referral-code-description">{phoneValidation()}</p>
             </div>
 
             <div className="register-leader-card-2">
@@ -217,7 +254,7 @@ const Register = () => {
                 }}
                 required
               ></input>
-              <p>{passwordValidation()}</p>
+              <p className="referral-code-description">{passwordValidation()}</p>
             </div>
 
             <div className="register-leader-card">
@@ -345,7 +382,7 @@ const Register = () => {
             >
               Register
             </button>
-            <p>{ISubmitRegister()}</p>
+            <p className = "warning-bottom">{ISubmitRegister()}</p>
           </Form>
         )}
       </Formik>
