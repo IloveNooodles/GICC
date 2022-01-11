@@ -29,7 +29,7 @@ code {
     display: block;
   }
   #hidden-text > p {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     display: flex;
     align-items: center;
