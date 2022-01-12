@@ -79,7 +79,7 @@ const ProfilePage = () => {
       </div>
       <div className="profile-container">
         <div className="left-profile-container">
-          <p>Upload Preliminary Submission</p>
+          <p className="display-none">Upload Preliminary Submission</p>
           <div className="form-container">
             {succesSubmit === "NOTSUBMIT" ||
             errorCode === "NO_SUBMISSION_FOUND" ? (
@@ -120,7 +120,7 @@ const ProfilePage = () => {
           </div>
           <br />
           <p style={{ fontWeight: 300, fontSize: 20, paddingTop: "2rem" }}>
-            <b>Announcement</b>
+            <b className="temp-style-annoucement">Announcement</b>
             <br />
             Technical Meeting
             <br />
@@ -168,14 +168,6 @@ const ProfilePage = () => {
               <p>Institution</p>
               {dataProfile.institution ? (
                 <span>{dataProfile.institution}</span>
-              ) : (
-                <span>-</span>
-              )}
-            </div>
-            <div className="items-text-profile">
-              <p>ID Line</p>
-              {dataProfile.lineID ? (
-                <span>{dataProfile.lineID}</span>
               ) : (
                 <span>-</span>
               )}

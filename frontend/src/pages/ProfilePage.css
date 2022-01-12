@@ -32,6 +32,7 @@
 
 .form-container {
   display: flex;
+  display: none;
   justify-content: center;
   height: fit-content;
   width: fit-content;
@@ -189,4 +190,16 @@
 .success-submit-container {
   color: white;
   font-size: 1.25rem;
+}
+
+.display-none {
+  display: none;
+}
+
+.temp-style-annoucement {
+  padding: 1rem;
+  font-size: 36px;
+  background: linear-gradient(267.2deg, #ffdc80 41.24%, #26a198 89.6%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

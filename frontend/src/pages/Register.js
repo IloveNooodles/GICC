@@ -25,6 +25,7 @@ const Register = () => {
   const [twibbon, setTwibbon] = useState();
   const [payment, setPayment] = useState();
   const [pass, setPass] = useState("");
+  const [loading, setLoading] = useState("");
   const [passwordEqual, setPasswordEqual] = useState(false);
   const [textForm, setTextForm] = useState({
     email: "",
@@ -128,6 +129,8 @@ const Register = () => {
         setStatus(error);
         console.log(error);
       });
+
+      setLoading("Loading...")
   };
 
   if (status.status === "SUCCESS") {
@@ -149,7 +152,7 @@ const Register = () => {
         <br />
         &emsp;1. Complete the payment of the entry fee before registering and
         provide the payment receipt. <br />
-        &emsp;2. Upload GICC 2021’s participation twibbon on A public Instagram
+        &emsp;2. Upload GICC 2022’s participation twibbon on A public Instagram
         feed and tag our IG @ganesha.icc. Instagram twibbon and caption can be
         accessed in <a href="https://bit.ly/GICC2022Registration">here</a>{" "}
         <br />
@@ -163,12 +166,15 @@ const Register = () => {
         &emsp;&emsp;Date: 20 January - 25 January 2022 <br />
         &emsp;&emsp;Entry Fee : Rp 45.000 <br />
         <br />
-        Entry fee payment is transferred to the following account:
-        <br />
-        Bank XXX 123456789 on behalf of XXXXXXX. <br />
-        Please add the number 01 if you register in the marketing sector, 02 for
-        operations, and 03 for EHS behind your nominal registration fee. For
-        example: Rp40.001,00 (Marketing Sector)
+        Entry Fee Payment is transferred to the following account:
+        <ul>
+          <li>Bank BNI 0634360281 on behalf of Monica Andini</li>
+          <li>Gopay 081316262145 on behalf of Monica Andini</li>
+          <li>Ovo 081316262145 on behalf of Monica Andini</li>
+        </ul>
+        <br /> Please add the number 01 if you register in the marketing sector,
+        02 for operations, and 03 for EHS behind your nominal registration fee.
+        For Example: Rp45.001,00 (Marketing Sector)
       </div>
 
       <Formik
@@ -404,6 +410,9 @@ const Register = () => {
             >
               Register
             </button>
+            {loading ? (
+              <p className="center-text">Loading Please Wait...</p>
+            ) : null}
             <p className="warning-bottom">{ISubmitRegister()}</p>
           </Form>
         )}

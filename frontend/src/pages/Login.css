@@ -76,7 +76,7 @@
 .login-text-content p {
   color: white;
   width: 506px;
-  height: 100px;
+  height: fit-content;
   font-weight: 300;
 }
 
@@ -211,4 +211,13 @@
   width: fit-content;
   padding-bottom: 0.5rem;
   color: red;
+}
+
+.big-text {
+  font-size: 1.25rem;
+  text-align: justify;
+}
+
+.bold-text {
+  font-weight: bold;
 }

@@ -18,7 +18,6 @@
 
 .register-leader-form {
   background-color: #e5e5e5;
-  padding-top: 50px;
   color: #143061;
   font-weight: 600;
   display: grid;
@@ -63,9 +62,16 @@
 .req-register-text {
   padding: 50px 100px 50px 100px;
   margin-left: 20%;
-  margin-bottom: 50px;
   width: 50%;
   height: 45%;
+}
+
+.req-register-text > ul > li {
+  height: fit-content;
+}
+
+.req-register-text > ul {
+  height: fit-content;
 }
 
 .institution-container,
@@ -205,4 +211,8 @@
   display: block;
   padding: 1rem auto;
   height: fit-content;
+}
+
+.center-text {
+  text-align: center;
 }
