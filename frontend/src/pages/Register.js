@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Register.css";
 import Navbar from "../components/navbar";
 import axios from "axios";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("Token");
+    if (token) {
+      navigate("/profile");
+    }
+  });
+
   const [passValid, setPassValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [phoneValid, setPhoneValid] = useState(false);
-  const [email,setEmail] = useState("")
-  const [phone, setPhone] = useState("")
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [studentId, setStudentId] = useState();
   const [twibbon, setTwibbon] = useState();
   const [payment, setPayment] = useState();
@@ -27,6 +37,8 @@ const Register = () => {
     referralCode: "",
   });
 
+  const [status, setStatus] = useState({});
+
   const SignupSchema = Yup.object().shape({
     email: Yup.string().email("Invalid Email").required("Required"),
     password: Yup.string().min(8, "Too Short!").required("Required"),
@@ -37,7 +49,7 @@ const Register = () => {
     referralCode: "",
   });
 
-  const URL = "https://salty-temple-74931.herokuapp.com/";
+  const URL = "https://gicc2022-backend.azurewebsites.net/";
 
   const checkPassword = (tempPass) => {
     if (tempPass !== pass) {
@@ -48,59 +60,59 @@ const Register = () => {
   };
 
   const passwordValidation = () => {
-    if(pass.length === 0) return null;
-    if(pass.length < 8) return "Too Short";
-    if(pass.toLowerCase() === pass || pass.toUpperCase() === pass) return "Please use combination of lower and upper case letters";
+    if (pass.length === 0) return null;
+    if (pass.length < 8) return "Too Short";
+    if (pass.toLowerCase() === pass || pass.toUpperCase() === pass)
+      return "Please use combination of lower and upper case letters";
     setPassValid(true);
     return null;
-  }
+  };
 
   const emailValidation = () => {
     if (email.length === 0) return null;
-    if (!String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      ))
-      {
-        return "Wrong Email Format";
-      }
+    if (
+      !String(email)
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )
+    ) {
+      return "Wrong Email Format";
+    }
     setEmailValid(true);
     return null;
   };
 
   const phoneValidation = () => {
-    if (email.length === 0) return null;
-    if (!String(email)
-    .toLowerCase()
-    .match(
-      /^\d{10}$/
-    ))
-    {
+    if (phone.length === 0) return null;
+    if (
+      !String(phone)
+        .toLowerCase()
+        .match(/^\d{10,13}$/)
+    ) {
       return "Wrong Phone Number Format";
     }
     setPhoneValid(true);
     return null;
-  }
+  };
 
   const handleChange = (e) => {
     setTextForm({ ...textForm, [e.target.name]: e.target.value });
   };
   const ISubmitRegister = () => {
-    if(!passValid) return "Wrong Password Configuration!";
-    if(!emailValid) return "Wrong Email Format!"
-    if(!phoneValid) return "Wrong Phone Number Format!"
+    if (!passValid) return "Wrong Password Configuration!";
+    if (!emailValid) return "Wrong Email Format!";
+    if (!phoneValid) return "Wrong Phone Number Format!";
     return null;
-  }
+  };
   const SubmitRegister = (e) => {
-    if(!passValid) return;
+    if (!passValid) return;
     e.preventDefault();
     var bodyFormData = new FormData();
     bodyFormData.append("twibbon", twibbon);
     bodyFormData.append("student_id", studentId);
     bodyFormData.append("payment", payment);
     bodyFormData.append("form", JSON.stringify(textForm));
-    console.log(textForm);
 
     axios({
       method: "post",
@@ -109,14 +121,21 @@ const Register = () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then(function (response) {
-        // buat cek udah registrasi bener
+        setStatus(response.data);
         console.log(response.data);
       })
       .catch(function (error) {
-        // buat cek udah registrasi salah
+        setStatus(error);
         console.log(error);
       });
   };
+
+  if (status.status === "SUCCESS") {
+    window.alert(
+      "Register Succesful. Please Wait For the admin to verify your identity"
+    );
+    navigate("/login");
+  }
 
   return (
     <div className="register-leader-container">
@@ -151,6 +170,7 @@ const Register = () => {
         operations, and 03 for EHS behind your nominal registration fee. For
         example: Rp40.001,00 (Marketing Sector)
       </div>
+
       <Formik
         initialValues={{
           email: "",
@@ -254,7 +274,9 @@ const Register = () => {
                 }}
                 required
               ></input>
-              <p className="referral-code-description">{passwordValidation()}</p>
+              <p className="referral-code-description">
+                {passwordValidation()}
+              </p>
             </div>
 
             <div className="register-leader-card">
@@ -382,10 +404,16 @@ const Register = () => {
             >
               Register
             </button>
-            <p className = "warning-bottom">{ISubmitRegister()}</p>
+            <p className="warning-bottom">{ISubmitRegister()}</p>
           </Form>
         )}
       </Formik>
+      {status ? (
+        <div className="register-status">
+          <p>{status.status}</p>
+          <p>{status.errorMessage}</p>
+        </div>
+      ) : null}
     </div>
   );
 };

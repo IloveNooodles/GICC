@@ -6,14 +6,13 @@ import "./navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-
 function Navbar() {
   const { pathname } = useLocation();
-  const [token, setToken] = useState()
+  const [token, setToken] = useState();
 
   useEffect(() => {
-    setToken(localStorage.getItem("Token"))
-  },[token]);
+    setToken(localStorage.getItem("Token"));
+  }, [token]);
 
   return (
     <div className="navbar">
@@ -21,7 +20,7 @@ function Navbar() {
         <div className="links-container">
           <Link
             to="/"
-            style = {{textDecoration : 'none'}}
+            style={{ textDecoration: "none" }}
             className={`link-style ${
               pathname === "/profile" || pathname === "/editprofile"
                 ? "blue-text"
@@ -32,7 +31,7 @@ function Navbar() {
           </Link>
           <Link
             to="/competition"
-            style = {{textDecoration : 'none'}}
+            style={{ textDecoration: "none" }}
             className={`link-style ${
               pathname === "/profile" || pathname === "/editprofile"
                 ? "blue-text"
@@ -43,7 +42,7 @@ function Navbar() {
           </Link>
           <Link
             to="/pre-event"
-            style = {{textDecoration : 'none'}}
+            style={{ textDecoration: "none" }}
             className={`link-style ${
               pathname === "/profile" || pathname === "/editprofile"
                 ? "blue-text"
@@ -52,29 +51,31 @@ function Navbar() {
           >
             Pre-Event
           </Link>
-          {token ? 
-          <Link
-            to="/profile"
-            style = {{textDecoration : 'none'}}
-            className={`link-style ${
-              pathname === "/profile" || pathname === "/editprofile"
-                ? "blue-text"
-                : ""
-            }`}
-          >
-            Profile
-          </Link> : 
-          <Link
-            to="/login"
-            style = {{textDecoration : 'none'}}
-            className={`link-style ${
-              pathname === "/competition"
-                ? "active-nav-competition"
-                : "active-nav"
-            }`}
-          >
-            Log In/Register
-          </Link>}
+          {token ? (
+            <Link
+              to="/profile"
+              style={{ textDecoration: "none" }}
+              className={`link-style ${
+                pathname === "/profile" || pathname === "/editprofile"
+                  ? "blue-text"
+                  : ""
+              }`}
+            >
+              Profile
+            </Link>
+          ) : (
+            <Link
+              to="/login"
+              style={{ textDecoration: "none" }}
+              className={`link-style ${
+                pathname === "/competition"
+                  ? "active-nav-competition"
+                  : "active-nav"
+              }`}
+            >
+              Log In/Register
+            </Link>
+          )}
         </div>
         <div class="underbar"></div>
       </div>

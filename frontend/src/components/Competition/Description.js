@@ -15,7 +15,7 @@ const Description = () => {
         </div>
       </div>
       <div className="guide-button-container">
-        <a href="https://bit.ly/GICC2022GB">
+        <a href="https://bit.ly/GICC2022GB" target="_blank">
           <button className="guide-button" type="button" id="guides">
             Download Guide Book
           </button>

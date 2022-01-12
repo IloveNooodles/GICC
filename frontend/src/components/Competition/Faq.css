@@ -37,3 +37,9 @@
 .Accordion-button:hover {
   cursor: pointer;
 }
+
+.faq-desc {
+  text-align: justify;
+  width: 90%;
+  margin: auto auto;
+}

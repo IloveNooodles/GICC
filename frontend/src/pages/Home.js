@@ -2,13 +2,12 @@ import Footer from "../components/footer";
 import GICC from "../components/Home/gicc";
 import AboutUs from "../components/Home/aboutUs";
 import Competition from "../components/Home/competition";
-import Sponsor from "../components/Home/sponsor"
+import Sponsor from "../components/Home/sponsor";
 import AOS from "aos";
-import "./Home.css"
+import "./Home.css";
 
 //image
-import Timeline from "../components/assets/timeline.png"
-
+import Timeline from "../components/assets/timeline.png";
 
 AOS.init();
 
@@ -25,11 +24,11 @@ const Home = () => {
         <Competition />
       </div>
       <div className="timeline">
-        <img src = {Timeline} id = "timeline"></img>
+        <img src={Timeline} id="timeline"></img>
       </div>
-      <div className="sponsor">
+      {/* <div className="sponsor">
         <Sponsor />  
-      </div>
+      </div> */}
       <div className="footer">
         <Footer />
       </div>

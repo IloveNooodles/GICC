@@ -8,7 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [pswd, setPswd] = useState("");
   const [status, setStatus] = useState("null");
-  const URL = "https://salty-temple-74931.herokuapp.com/";
+  const URL = "https://gicc2022-backend.azurewebsites.net/";
   const history = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("Token");
@@ -22,7 +22,6 @@ const Login = () => {
       email: email,
       password: pswd,
     };
-    console.log(loginData);
 
     axios({
       method: "post",
@@ -30,7 +29,6 @@ const Login = () => {
       data: loginData,
     })
       .then(function (res) {
-        console.log(res);
         if (res.data.status === "SUCCESS") {
           setStatus("success");
           localStorage.setItem("Token", res.data.token);
@@ -41,7 +39,6 @@ const Login = () => {
       })
       .catch(function (err) {
         setStatus("failed");
-        console.log(err);
       });
   };
 

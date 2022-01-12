@@ -26,7 +26,7 @@ const Footer = () => {
           <img src={GiccImage} alt="Gambar GICC" />
         </div>
         <div className="upperFooter2-Contact">
-          <div className="contact-component">
+          <div className="contact-component cursor-default">
             <img src={Line} alt="Line" />
             <p>@672xydvh</p>
           </div>
@@ -52,11 +52,6 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer">
-        <div className="footer-backBtn">
-          <button className="backBtn">
-            <a href="">Back to Top ^</a>
-          </button>
-        </div>
         <div className="footer-copyright">
           <p>Copyright GICC 2022 | All rights reserved.</p>
         </div>

@@ -45,10 +45,7 @@ const AboutUs = () => {
             <br />{" "}
             <a>
               {" "}
-              <Link
-                to="/competition"
-                style={{ textDecoration: "none" }}
-              >
+              <Link to="/competition" style={{ textDecoration: "none" }}>
                 see more
               </Link>
             </a>
