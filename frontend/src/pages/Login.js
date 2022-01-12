@@ -7,7 +7,7 @@ import axios from "axios";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pswd, setPswd] = useState("");
-  const [status, setStatus] = useState("null");
+  const [status, setStatus] = useState({status: null, errorMessage: "base"});
   const URL = "https://gicc2022-backend.azurewebsites.net/";
   const history = useNavigate();
   useEffect(() => {
@@ -18,10 +18,12 @@ const Login = () => {
   }, []);
 
   const LoginUser = () => {
+    console.log(status);
     const loginData = {
       email: email,
       password: pswd,
     };
+    console.log(loginData);
 
     axios({
       method: "post",
@@ -29,16 +31,18 @@ const Login = () => {
       data: loginData,
     })
       .then(function (res) {
+        console.log(res);
         if (res.data.status === "SUCCESS") {
-          setStatus("success");
+          setStatus({...status, status: "SUCCESS"});
           localStorage.setItem("Token", res.data.token);
           history("/");
         } else {
-          setStatus("failed");
+          setStatus({status: "FAILED", errorMessage: res.data.errorMessage})
         }
       })
       .catch(function (err) {
-        setStatus("failed");
+        console.log(err.message);
+        setStatus({ status: "FAILED", errorMessage: "Login failed" });
       });
   };
 
@@ -81,11 +85,11 @@ const Login = () => {
             </div>
           </form>
         </div>
-        {status === "success" ? (
+        {status.status === "SUCCESS" ? (
           // ini tinggal redirect
           <div className="error-popup">berhasil</div>
-        ) : status === "failed" ? (
-          <div className="error-popup">Login gagal Username/password salah</div>
+        ) : status.status === "FAILED" ? (
+          <div className="error-popup">{status.errorMessage}</div>
         ) : null}
         <div className="login-button">
           <button onClick={LoginUser}>Log In</button>
