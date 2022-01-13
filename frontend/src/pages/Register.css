@@ -63,7 +63,7 @@
   padding: 50px 100px 50px 100px;
   margin-left: 20%;
   width: 50%;
-  height: 45%;
+  height: fit-content;
 }
 
 .req-register-text > ul > li {

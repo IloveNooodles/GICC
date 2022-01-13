@@ -1,4 +1,4 @@
-import Footer from "../components/footer";
+ import Footer from "../components/footer";
 import GICC from "../components/Home/gicc";
 import AboutUs from "../components/Home/aboutUs";
 import Competition from "../components/Home/competition";
