@@ -21,7 +21,7 @@ code {
   display: none;
 }
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1200px) {
   #root {
     display: none;
   }
