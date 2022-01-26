@@ -63,7 +63,8 @@ const Login = () => {
             verification from{" "}
             <span className="bold-text"> 20:00 - 22:00 WIB</span> every day,
             kindly wait before the mentioned period. If you need any assistance
-            please contact our CP : <span className="bold-text">patrick03_09_2002 (Line ID)</span>
+            please contact our CP :{" "}
+            <span className="bold-text">patrick03_09_2002 (Line ID)</span>
           </p>
           <Link to="/">
             <button>Go To Homepage</button>
@@ -109,11 +110,15 @@ const Login = () => {
         <div className="sign-up-container">
           <p>
             Don't have an account? <br />
-            <Link to="/register" style={{ textDecoration: "none" }}>
-              <span>Sign Up Here</span>
-            </Link>
+            <span>
+              {" "}
+              <s>Sign Up Here</s>{" "}
+            </span>
           </p>
         </div>
+        <p style={{ width: "fit-content", height: "fit-content", marginTop: "1rem" }}>
+          Registrasion has been closed
+        </p>
       </div>
     </div>
   );
