@@ -110,13 +110,12 @@ const Login = () => {
         <div className="sign-up-container">
           <p>
             Don't have an account? <br />
-            <span>
-              {" "}
-              <s>Sign Up Here</s>{" "}
-            </span>
+            <Link to="/register">
+              <span>Sign Up Here</span>
+            </Link>
           </p>
         </div>
-        <p
+        {/* <p
           style={{
             width: "fit-content",
             height: "fit-content",
@@ -124,7 +123,7 @@ const Login = () => {
           }}
         >
           Registration has been closed
-        </p>
+        </p> */}
       </div>
     </div>
   );

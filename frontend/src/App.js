@@ -23,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/competition" element={<CompetitionPage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/editprofile" element={<EditProfilePage />} />
           <Route path="/pre-event" element={<PreEventPage />} />
