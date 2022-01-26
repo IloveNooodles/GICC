@@ -116,8 +116,14 @@ const Login = () => {
             </span>
           </p>
         </div>
-        <p style={{ width: "fit-content", height: "fit-content", marginTop: "1rem" }}>
-          Registrasion has been closed
+        <p
+          style={{
+            width: "fit-content",
+            height: "fit-content",
+            marginTop: "1rem",
+          }}
+        >
+          Registration has been closed
         </p>
       </div>
     </div>
