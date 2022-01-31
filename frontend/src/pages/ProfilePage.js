@@ -124,9 +124,9 @@ const ProfilePage = () => {
             <br />
             Technical Meeting
             <br />
-            30 January 2022
+            12 February 2022
             <br />
-            Details : Coming soon
+            09.00 WIB
           </p>
         </div>
         <div className="right-profile-container">
