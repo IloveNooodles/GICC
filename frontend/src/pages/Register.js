@@ -163,7 +163,7 @@ const Register = () => {
         &emsp;&emsp;Date: 13 January - 19 January 2022 <br />
         &emsp;&emsp;Entry Fee : Rp 35.000 <br />
         &emsp;- Regular Registration <br />
-        &emsp;&emsp;Date: 20 January - 25 January 2022 <br />
+        &emsp;&emsp;Date: 20 January - 10 February 2022 <br />
         &emsp;&emsp;Entry Fee : Rp 45.000 <br />
         <br />
         Entry Fee Payment is transferred to the following account:

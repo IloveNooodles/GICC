@@ -78,10 +78,14 @@ const Faq = () => {
           </h2>
           <AccordionPanel pb={30} className="faq-desc">
             Early Bird Registration: 13 January - 19 January <br />
-            Late Bird Registration: 20 January - 25 January <br />
+            Late Bird Registration: 20 January - 10 February <br />
             <br />
             Entry fee payment is transferred to the following account: <br />
-            Bank XXX 123456789 on behalf of XXXXXXX.
+            <ul>
+              <li>Bank BNI 0634360281 on behalf of Monica Andini</li>
+              <li>Gopay 081316262145 on behalf of Monica Andini</li>
+              <li>Ovo 081316262145 on behalf of Monica Andini</li>
+            </ul>
             <br />
             Please add the number 01 if you register in the marketing sector, 02
             for operations, and 03 for EHS behind your nominal registration fee.
