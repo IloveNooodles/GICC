@@ -126,7 +126,7 @@ const ProfilePage = () => {
             <br />
             12 February 2022
             <br />
-            09.00 WIB
+            Time : TBA
           </p>
         </div>
         <div className="right-profile-container">
