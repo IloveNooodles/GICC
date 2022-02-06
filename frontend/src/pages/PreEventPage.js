@@ -22,7 +22,7 @@ const PreEventPage = () => {
       },
       {
         url: GICClass,
-        redirect : "https://docs.google.com/forms/d/1CZDnlO3oezsnAmbVRJcCxqS2EPpVehcVHKVFUCCXdiU/edit",
+        redirect : "https://www.instagram.com/ganesha.icc/",
         title: "GICClass",
         description:
           "Revealing the Secrets of Winning Business Competitions : Think Critically and Creatively for a Better Branding GICClass is an online workshop made for aspiring learners who are eager to ace in the professional world. This episode of GICClass will mainly talk about how students can utilize their ability to think critically and creatively in creating the best branding especially for business competitions and later on it can also be used in their aspiring careers.",
