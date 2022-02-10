@@ -125,8 +125,10 @@ const ProfilePage = () => {
             Technical Meeting
             <br />
             12 February 2022
+            <br /><br />
+            <a href = "https://bit.ly/GICCtechMeet" target={"_blank"} className = "techmeet">bit.ly/GICCtechMeet</a>
             <br />
-            Time : TBA
+            19:00 - 21:00 WIB
           </p>
         </div>
         <div className="right-profile-container">

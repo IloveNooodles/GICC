@@ -203,3 +203,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.techmeet:hover{
+  border-bottom: 1px solid #26a198;
+}
