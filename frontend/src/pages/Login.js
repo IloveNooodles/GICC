@@ -107,15 +107,15 @@ const Login = () => {
           <img src={Facebook} alt="Logo Facebook" />
           <img src={Facebook} alt="Logo Facebook" />
         </div> */}
-        <div className="sign-up-container">
+        {/* <div className="sign-up-container">
           <p>
             Don't have an account? <br />
             <Link to="/register">
               <span>Sign Up Here</span>
             </Link>
           </p>
-        </div>
-        {/* <p
+        </div> */}
+        <p
           style={{
             width: "fit-content",
             height: "fit-content",
@@ -123,7 +123,7 @@ const Login = () => {
           }}
         >
           Registration has been closed
-        </p> */}
+        </p>
       </div>
     </div>
   );
