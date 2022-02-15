@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import Placeholder from "../assets/placeholder.png";
 import Rectangle1 from "../assets/Rectangle1.png"
 import Rectangle2 from "../assets/Rectangle2.png"
+import AmarthaLogo from "../assets/amartha-logo.png"
+import AmarthaLogoNoText from "../assets/amartha-logo-no-text.png"
 import "./sponsor.css";
 
 const Sponsor = () => {
@@ -46,10 +48,10 @@ const Sponsor = () => {
         <div className="sponsor-title">Our Sponsors</div>
         <div className="sponsor-card-container">
             <div className="sponsor-card">
-                <img alt="sponsor-logo" src={Placeholder} className="sponsor-exc-logo"/>
+                <img alt="sponsor-logo" src={AmarthaLogoNoText} className="sponsor-exc-logo" />
                 <button onClick={showSponsor1} className="sponsor-learn-more">Read More</button>
             </div>
-            <div className="sponsor-card">
+            {/* <div className="sponsor-card">
                 <img alt="sponsor-logo" src={Placeholder} className="sponsor-exc-logo"/>
                 <button onClick={showSponsor2} className="sponsor-learn-more">Read More</button>
             </div>
@@ -60,25 +62,23 @@ const Sponsor = () => {
             <div className="sponsor-card">
                 <img alt="sponsor-logo" src={Placeholder} className="sponsor-exc-logo"/>
                 <button onClick={showSponsor4} className="sponsor-learn-more">Read More</button>
-            </div>
+            </div> */}
         </div>
 
 
         {sponsor1 ? <div className="sponsor-page-body">
             <div className="sponsor-page-video">
                 <iframe className="sponsor-page-video-detailed"
-                        src="https://drive.google.com/file/d/1I1tf6Auj3CJ30krtLrzkqzP2K8EYJLQ_/preview"
+                        src="https://www.youtube.com/embed/Nt6eATh50j0"
                         allow="autoplay"/>
             </div>
             <div className="sponsor-page-description">
-                <img src={Placeholder} alt="sponsor-logo" className="sponsor-page-logo"/>
+                <img src={AmarthaLogo} alt="sponsor-logo" className="sponsor-page-logo" style={{width : 350}}/>
                 <div className="sponsor-page-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac mollis turpis, eu sagittis
-                    diam. Duis nunc dolor, imperdiet at efficitur id, pretium sit amet justo. Sed est nisi,
-                    fermentum laoreet molestie sed, dignissim commodo eros. Morbi ac malesuada libero. Ut nec tellus
-                    cursus nunc volutpat dignissim. Mauris sagittis sit amet elit ac ornare. Vestibulum ornare
-                    semper convallis. Sed malesuada mauris ex, eu varius nunc fringilla vel. Praesent tincidunt
-                    tellus massa, in
+                    <p>
+                    <big><b>Amartha</b></big> (2010) adalah pionir fintech (financial technology) peer-to-peer (P2P) lending online di Indonesia, lembaga keuangan yang bergerak untuk memberikan pendanaan usaha kecil dan mikro (UKM). Amartha beroperasi dengan mengumpulkan dana masyarakat yang ingin berinvestasi. Kemudian Amartha akan menyalurkannya kepada UKM yang telah bekerja sama. Kesemuanya dilakukan melalui internet atau online.  berfokus pada pinjaman produktif dan menyasar peminjam dari kalangan perempuan pengusaha mikro dan kecil
+                    </p>
+
                 </div>
             </div>
         </div> : <></>}

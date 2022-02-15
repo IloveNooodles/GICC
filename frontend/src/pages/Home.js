@@ -26,9 +26,9 @@ const Home = () => {
       <div className="timeline">
         <img src={Timeline} id="timeline"></img>
       </div>
-      {/* <div className="sponsor">
+      <div className="sponsor">
         <Sponsor />  
-      </div> */}
+      </div>
       <div className="footer">
         <Footer />
       </div>
