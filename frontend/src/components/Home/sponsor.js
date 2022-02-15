@@ -4,6 +4,7 @@ import Rectangle1 from "../assets/Rectangle1.png"
 import Rectangle2 from "../assets/Rectangle2.png"
 import AmarthaLogo from "../assets/amartha-logo.png"
 import AmarthaLogoNoText from "../assets/amartha-logo-no-text.png"
+import Amartha from "../assets/amartha1x1.jpg"
 import "./sponsor.css";
 
 const Sponsor = () => {
@@ -48,7 +49,7 @@ const Sponsor = () => {
         <div className="sponsor-title">Our Sponsors</div>
         <div className="sponsor-card-container">
             <div className="sponsor-card">
-                <img alt="sponsor-logo" src={AmarthaLogoNoText} className="sponsor-exc-logo" />
+                <img alt="sponsor-logo" src={Amartha} className="sponsor-exc-logo" />
                 <button onClick={showSponsor1} className="sponsor-learn-more">Read More</button>
             </div>
             {/* <div className="sponsor-card">
