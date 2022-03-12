@@ -17,7 +17,7 @@
 
 .sponsor-card-container {
   margin: auto;
-  width: 40%; /* 70% for 4 sponsors */
+  width: 50%; /* 70% for 4 sponsors */
   height: 60%;
   padding: 40px;
   background: rgba(255, 255, 255, 0.4);
@@ -25,6 +25,7 @@
   display: grid;
   grid-template-columns: 100%;  /* make 1 sponsor */
   row-gap: 20px;
+  display: flex;
 }
 
 .sponsor-card {
