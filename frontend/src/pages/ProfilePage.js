@@ -79,7 +79,7 @@ const ProfilePage = () => {
       </div>
       <div className="profile-container">
         <div className="left-profile-container">
-          <p className="display-none">Upload Preliminary Submission</p>
+          <p>Upload Preliminary Submission</p>
           <div className="form-container">
             {succesSubmit === "NOTSUBMIT" ||
             errorCode === "NO_SUBMISSION_FOUND" ? (
@@ -103,7 +103,7 @@ const ProfilePage = () => {
                 <input
                   type="submit"
                   id="submit-button-true"
-                  className="buttons"
+                  className="submit-final"
                   onClick={handleSubmitTrue}
                 />
               </form>
@@ -122,13 +122,7 @@ const ProfilePage = () => {
           <p style={{ fontWeight: 300, fontSize: 20, paddingTop: "2rem" }}>
             <b className="temp-style-annoucement">Announcement</b>
             <br />
-            Technical Meeting
-            <br />
-            12 February 2022
-            <br /><br />
-            <a href = "https://bit.ly/GICCtechMeet" target={"_blank"} className = "techmeet">bit.ly/GICCtechMeet</a>
-            <br />
-            19:00 - 21:00 WIB
+            Please be careful!! You can only submit once.
           </p>
         </div>
         <div className="right-profile-container">
