@@ -130,7 +130,7 @@ const Register = () => {
         console.log(error);
       });
 
-      setLoading("Loading...")
+    setLoading("Loading...");
   };
 
   if (status.status === "SUCCESS") {
